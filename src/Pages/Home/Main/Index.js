@@ -1,5 +1,6 @@
 import React from "react";
 import * as S from "./Styles"
+import Contact from "../../../Components/Contact/Contact"
 
 import { FaUserTie } from "react-icons/fa";
 import { useState } from 'react'
@@ -9,7 +10,7 @@ import Embalagem from "../../../images/embalagem.png"
 
 
 export default function Main(){
-    const [bgColor] = useState("#0b9148")
+    const [bgColor] = useState("#0e264b")
     const [fundoColor, setFundoColor] = useState("#0b337a")
     const [textColor, setTextColor] = useState("yellow")
     const [frisoColor, setFrisoColor] = useState("yellow")
@@ -105,10 +106,11 @@ export default function Main(){
                                 <h4>{art}</h4>
                             </S.Fita>
 
-                            <S.Fita color={fundoColor} colorText={textColor} colorFriso={frisoColor}>
+                            <S.FitaTwo color={fundoColor} colorText={textColor} colorFriso={frisoColor}>
                                 <span></span>
+                                <div></div>
                                 <h4>{art}</h4>
-                            </S.Fita>
+                            </S.FitaTwo>
                         </div>
                         <S.Colors>
                                 <S.YourArt onChange={handleChange} value={art} type="text" placeholder="Digite sua arte aqui"/>
@@ -119,26 +121,29 @@ export default function Main(){
                             </S.Select>
 
                             <S.Buttons>
-                                <button onClick={()=> changeColor("red")} style={{backgroundColor: "red"}}>Nome</button>
-                                <button onClick={()=> changeColor("darkred")} style={{backgroundColor: "darkred"}}>Nome</button>
-                                <button onClick={()=> changeColor("blue")} style={{backgroundColor: "blue"}}>Nome</button>
-                                <button onClick={()=> changeColor("darkblue")} style={{backgroundColor: "darkblue"}}>Nome</button>
-                                <button onClick={()=> changeColor("green")} style={{backgroundColor: "green"}}>Nome</button>
-                                <button onClick={()=> changeColor("darkgreen")} style={{backgroundColor: "darkgreen"}}>Nome</button>
-                                <button onClick={()=> changeColor("pink")} style={{backgroundColor: "pink"}}>Nome</button>
-                                <button onClick={()=> changeColor("hotpink")} style={{backgroundColor: "hotpink"}}>Nome</button>
-                                <button onClick={()=> changeColor("yellow")} style={{backgroundColor: "yellow"}}>Nome</button>
-                                <button onClick={()=> changeColor("cyan")} style={{backgroundColor: "cyan"}}>Nome</button>
-                                <button onClick={()=> changeColor("grey")} style={{backgroundColor: "grey"}}>Nome</button>
-                                <button onClick={()=> changeColor("darkgrey")} style={{backgroundColor: "darkgrey"}}>Nome</button>
-                                <button onClick={()=> changeColor("white")} style={{backgroundColor: "white"}}>Nome</button>
-                                <button onClick={()=> changeColor("lightpink")} style={{backgroundColor: "lightpink"}}>Nome</button>
-                                <button onClick={()=> changeColor("lightgreen")} style={{backgroundColor: "lightgreen"}}>Nome</button>
+                                <button onClick={()=> changeColor("#20331B")} style={{backgroundColor: "#20331B"}}>Amazonas</button>
+                                <button onClick={()=> changeColor("lightblue")} style={{backgroundColor: "lightblue"}}>Azul BB</button>
+                                <button onClick={()=> changeColor("yellow")} style={{backgroundColor: "yellow"}}>Amarelo</button>
+                                <button onClick={()=> changeColor("#C6FF56")} style={{backgroundColor: "#C6FF56"}}>Amarelo L.</button>
+                                <button onClick={()=> changeColor("#7e0505")} style={{backgroundColor: "#7e0505"}}>Bordô</button>
+                                <button onClick={()=> changeColor("#fff")} style={{backgroundColor: "#fff"}}>Branco</button>
+                                <button onClick={()=> changeColor("#ce8967")} style={{backgroundColor: "#ce8967"}}>Corsa</button>
+                                <button onClick={()=> changeColor("grey")} style={{backgroundColor: "grey"}}>Cinza</button>
+                                <button onClick={()=> changeColor("#f96bad")} style={{backgroundColor: "#f96bad"}}>Chiclete</button>
+                                <button onClick={()=> changeColor("#37393f")} style={{backgroundColor: "#37393f"}}>Grafite</button>
+                                <button onClick={()=> changeColor("#ff6000")} style={{backgroundColor: "#ff6000"}}>Laranja</button>
+                                <button onClick={()=> changeColor("#0d1168")} style={{backgroundColor: "#0d1168"}}>Marinho</button>
+                                <button onClick={()=> changeColor("#fff9cd")} style={{backgroundColor: "#fff9cd"}}>Marfim</button>
+                                <button onClick={()=> changeColor("#ff0074")} style={{backgroundColor: "#ff0074"}}>Pink</button>
+                                <button onClick={()=> changeColor("#ff97c7")} style={{backgroundColor: "#ff97c7"}}>Rosa BB</button>
                             </S.Buttons>
                         </S.Colors>
                         
                     </S.ContentCatalog>
                 </S.Catalog>
+
+
+                <Contact/>
             </S.Main>
         </>
     )

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Banner from "../../../images/banner-home.png"
+import Mescla from "../../../images/mescla.PNG"
 
 export const Main = styled.main`
     .banner{
@@ -113,12 +114,40 @@ export const Fita = styled.div`
     h4{
         font-size: 2.8rem;
     }
-
+`
+export const FitaTwo = styled.div`
+    position: relative;
+    background-color: ${(props) => props.color};
+    color: ${(props) => props.colorText};
+    height: 120px;
+    width: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    div{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 30px;
+        background-image: url(${Mescla});
+    }
+    span{
+        position: absolute;
+        bottom: 30px;
+        width: 100%;
+        height: 7px;
+        background-color: ${(props) => props.colorFriso};
+    }
+    h4{
+        margin-top: -40px;
+        font-size: 2.5rem;
+    }
 `
 export const ContentCatalog = styled.div`
+    height: 400px;
+    margin-top: 30px;
     display: flex;
     justify-content: space-between;
-    padding-top: 30px;
     p{
         font-size: 1.2rem;
         font-weight: 100;
@@ -128,8 +157,8 @@ export const ContentCatalog = styled.div`
 export const Buttons = styled.div` 
     margin-top: 30px;
     width:  580px;
-    height: 230px;
     display: flex;
+    gap: 15px;
     justify-content: space-between;
     flex-wrap: wrap;
 
@@ -138,10 +167,10 @@ export const Buttons = styled.div`
         box-shadow: 2px 4px 7px -1px rgba(0,0,0,0.43);
         border-radius: 5px;
         background-color: hotpink;
-        width: 100px;
+        width: 120px;
         height: 50px;
         padding: 5px 10px;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         font-family: "Paytone One", sans-serif;
 
         &:hover{
@@ -162,23 +191,26 @@ export const ButtonSelect = styled.button`
     border-style: none;
     border-radius: 5px;
     font-size: 1.1rem;
-    color: #0b337a;
+    color: #fff;
     font-weight: 700;
     &:hover{
         cursor: pointer;
     }
 `
 export const Colors = styled.div`
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
 `
 export const YourArt = styled.input`
-    background-color: #0b9148;
+    background-color: #0e264b;
     height: 50px;
     border-style: none;
     border-radius: 5px;
     width: 100%;
     font-size: 1.3rem;
-    color: #0b337a;
+    color: #fff;
     font-weight: 700;
     padding-left: 15px;
 
