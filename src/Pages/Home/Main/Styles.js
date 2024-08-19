@@ -89,9 +89,13 @@ export const Catalog = styled.section`
         font-size: 2rem;
     }
     .left{
+        width: 700px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        @media(max-width: 1480px){
+            width: 500px;
+        }
     }
 
 `
@@ -102,7 +106,7 @@ export const Fita = styled.div`
     height: 120px;
     width: 700px;
     display: flex;
-    justify-content: center;
+    justify-content: center;;
     align-items: center;
     span{
         position: absolute;
@@ -113,6 +117,10 @@ export const Fita = styled.div`
     }
     h4{
         font-size: 2.8rem;
+    }
+    @media(max-width: 1480px){
+        width: 500px;
+        height: 100px;
     }
 `
 export const FitaTwo = styled.div`
@@ -142,12 +150,16 @@ export const FitaTwo = styled.div`
         margin-top: -40px;
         font-size: 2.5rem;
     }
+    @media(max-width: 1480px){
+        width: 500px;
+        height: 100px;
+    }
 `
 export const ContentCatalog = styled.div`
-    height: 400px;
     margin-top: 30px;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     p{
         font-size: 1.2rem;
         font-weight: 100;

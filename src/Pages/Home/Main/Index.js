@@ -96,10 +96,10 @@ export default function Main(){
                     <S.ContentCatalog>
                         <div class="left">
                             <p>
-                            Explore nosso catálogo de cores e veja como sua arte ganharia vida em<br/>
+                            Explore nosso catálogo de cores e veja como sua arte ganharia vida em
                             um elástico personalizado.
-                            Experimente diferentes combinações e personalize<br/>ainda mais, digitando a sua marca desejada para ver como ela aparece.
-                            <br/>Descubra o visual perfeito e crie um design exclusivo que reflete seu estilo!
+                            Experimente diferentes combinações e personalize ainda mais, digitando a sua marca desejada para ver como ela aparece.
+                            Descubra o visual perfeito e crie um design exclusivo que reflete seu estilo!
                             </p>
                             <S.Fita color={fundoColor} colorText={textColor} colorFriso={frisoColor}>
                                 <span></span>

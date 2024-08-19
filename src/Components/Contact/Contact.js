@@ -6,11 +6,10 @@ export default function Contact(){
     return(
         <>
             <S.Contact>
-                <h1>Contate-nos</h1>
                 <S.ContentContact>
                     <S.Left>
-                        <h3>oi</h3>
-                        <p>oi</p>
+                        <h3>Contate-nos</h3>
+                        <p>Estamos aqui para ajudar! Se você tiver dúvidas, sugestões ou precisa de suporte, não hesite em nos contatar.</p>
 
                         <div>
                             
@@ -18,7 +17,10 @@ export default function Contact(){
                     </S.Left>
 
                     <S.Right>
-
+                        <input type="email" placeholder="email@email.com"/>
+                        <input type="text" placeholder="Nome"/>
+                        <input type="text" placeholder="Seu número"/>
+                        <textarea placeholder="Digite sua mensagem aqui"/>
                     </S.Right>
                 </S.ContentContact>
             </S.Contact>
