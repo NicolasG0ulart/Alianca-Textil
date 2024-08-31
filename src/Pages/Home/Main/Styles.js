@@ -1,31 +1,51 @@
 import styled from "styled-components";
 import Banner from "../../../images/banner-home.png"
+import BannerMobile from "../../../images/banner-mobile.png"
 import Mescla from "../../../images/mescla.PNG"
 
 export const Main = styled.main`
     .banner{
         background-image: url(${Banner});
-        background-size: 100%;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
         box-shadow: inset 194px 0px 145px 31px rgba(0,0,0,0.81);
         padding-inline: 100px;
         height: 430px;
         width: 100%;
         display: flex;
         align-items: center;
+        @media(max-width: 1024px){
+            background-image: url(${BannerMobile});
+            padding-inline: 30px;
+        }
     }
     h2{
         color: #fff;
-        font-size: 3rem;
+        font-size: 6vh;
         font-weight: 200;
+        text-shadow: 2px 3px 2px rgba(0,0,0,0.7);
+        @media(max-width: 1024px){
+            font-size: 4.7vh;
+        }
+        @media(max-width: 768px){
+            font-size: 4vh;
+        }
+        @media(max-width: 600px){
+            display: none;
+        }
     }
+    
 `
 export const Warnings = styled.section`
     margin-top: -80px;
     padding-inline: 100px;
     height: 230px;
-
     display: flex;
     justify-content: space-between;
+    
+    @media(max-width: 1024px){
+        padding-inline: 30px;
+    }
 `
 export const Frame = styled.div`
     background-color: #fff;
@@ -47,6 +67,12 @@ export const Frame = styled.div`
     }
     &:hover{
        cursor: pointer;
+    }
+    @media(max-width: 1024px){
+        width: 220px;
+    }
+    @media(max-width: 768px){
+        
     }
 `
 
@@ -96,8 +122,10 @@ export const Catalog = styled.section`
         @media(max-width: 1480px){
             width: 500px;
         }
+        @media(max-width: 1087px){
+            width: 60%;
+        }
     }
-
 `
 export const Fita = styled.div`
     position: relative;
@@ -117,10 +145,16 @@ export const Fita = styled.div`
     }
     h4{
         font-size: 2.8rem;
+        @media(max-width: 1480px){
+            font-size: 2.2rem;
+        }
     }
     @media(max-width: 1480px){
         width: 500px;
         height: 100px;
+    }
+    @media(max-width: 1087px){
+        width: 100%;
     }
 `
 export const FitaTwo = styled.div`
@@ -149,10 +183,16 @@ export const FitaTwo = styled.div`
     h4{
         margin-top: -40px;
         font-size: 2.5rem;
+        @media(max-width: 1480px){
+            font-size: 2rem;
+        }
     }
     @media(max-width: 1480px){
         width: 500px;
         height: 100px;
+    }
+    @media(max-width: 1087px){
+        width: 100%;
     }
 `
 export const ContentCatalog = styled.div`
@@ -164,6 +204,18 @@ export const ContentCatalog = styled.div`
         font-size: 1.2rem;
         font-weight: 100;
         color: #0b337a;
+    }
+    .left{
+        @media(max-width: 1480px){
+            gap: 30px;
+        }
+    }
+    @media(max-width: 1480px){
+        gap: 30px;
+    }
+    @media(max-width: 1087px){
+        display: flex;
+        justify-content: center;
     }
 `
 export const Buttons = styled.div` 
@@ -188,6 +240,20 @@ export const Buttons = styled.div`
         &:hover{
             cursor: pointer;
         }
+
+        @media(max-width: 1480px){
+            width: 100px;
+            height: 45px;
+            font-size: .9rem;
+        }
+        @media(max-width: 1480px){
+            width: 90px;
+            font-size: .8rem;
+        }
+    }
+    @media(max-width: 1480px){
+        gap: 10px;
+        width: 100%;
     }
 `
 export const Select = styled.div`
@@ -208,11 +274,21 @@ export const ButtonSelect = styled.button`
     &:hover{
         cursor: pointer;
     }
+    @media(max-width: 1480px){
+        font-size: .9rem;
+    }
+    
 `
 export const Colors = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @media(max-width: 1480px){
+        width: 40%;
+    }
+    @media(max-width: 1087px){
+        width: 60%;
+    }
     
 `
 export const YourArt = styled.input`
@@ -229,5 +305,9 @@ export const YourArt = styled.input`
     &::placeholder{
         font-size: 1.3rem;
         color: #0b337a;
+    }
+    @media(max-width: 1480px){
+        height: 45px;
+        font-size: 1.1rem;
     }
 `

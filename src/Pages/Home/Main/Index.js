@@ -42,10 +42,7 @@ export default function Main(){
         <>
             <S.Main>
                 <div class="banner">
-                    <h2>Algum texto aleatório para colocar AQUI.
-                        <br/>Algum texto aleatório para
-                        <br/>colocar AQUI.
-                    </h2>
+                    <h2>Estique sua Originalidade com nossos elásticos exclusivos.</h2>
                 </div>
                 
                 <S.Warnings>
