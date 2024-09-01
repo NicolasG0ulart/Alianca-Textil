@@ -75,7 +75,6 @@ export default function Main(){
                                 Localizada na cidade de Pequeri - MG, nossa empresa funciona 24 horas por dia,
                                 para garantir que nossos clientes sempre tenham acesso aos melhores produtos. 
                                 Nosso compromisso com a excelência é evidente em cada elástico que produzimos.
-                                <br/><br/>
                                 Utilizamos materiais da mais alta qualidade e técnicas de fabricação de última geração para
                                 garantir que nossos produtos atendam e superem as expectativas dos nossos clientes.
                             </p>

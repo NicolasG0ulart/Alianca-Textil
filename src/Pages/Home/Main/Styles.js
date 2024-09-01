@@ -41,10 +41,15 @@ export const Warnings = styled.section`
     padding-inline: 100px;
     height: 230px;
     display: flex;
-    justify-content: space-between;
-    
     @media(max-width: 1024px){
         padding-inline: 30px;
+    }
+    @media(max-width: 768px){
+        padding-inline: 30px;
+        gap: 50px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
     }
 `
 export const Frame = styled.div`
@@ -72,7 +77,18 @@ export const Frame = styled.div`
         width: 220px;
     }
     @media(max-width: 768px){
-        
+        scroll-snap-align: start;
+        flex: 0 0 50%;
+        height: 170px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center; /* Centralizar o texto */
+    }
+    @media(max-width: 540px){
+        flex: 0 0 80%;
+        height: 190px;
     }
 `
 
@@ -82,11 +98,17 @@ export const Enterprise = styled.section`
     h1{
         color: #0e264b;
         font-size: 2rem;
+        @media(max-width: 1024px){
+            text-align: center;
+        }
     }
     img{
         width: 170px;
         height: 210px;  
-        border-radius: 5px;  
+        border-radius: 5px;
+    }
+    @media(max-width: 1024px){
+        padding-inline: 30px;
     }
 `
 export const ContentEnterprise = styled.div`
@@ -96,6 +118,15 @@ export const ContentEnterprise = styled.div`
     .laiza{
         height: 370px;
         width: 290px;
+        @media(max-width: 1024px){
+            width: 100%;
+            height: 500px;;
+        }
+    }
+    @media(max-width: 1024px){
+        gap: 50px;
+        flex-direction: column;
+        align-items: center;
     }
 `
 export const Text = styled.div`
@@ -107,12 +138,19 @@ export const Text = styled.div`
         font-weight: 100;
         color: #0b337a;
     }
+    @media(max-width: 1024px){
+        width: 100%;
+        text-align: center;
+    }
 `
 export const Catalog = styled.section`
     padding: 60px 100px;
     h1{
         color: #0e264b;
         font-size: 2rem;
+        @media(max-width: 1024px){
+            text-align: center;
+        }
     }
     .left{
         width: 700px;
@@ -122,9 +160,12 @@ export const Catalog = styled.section`
         @media(max-width: 1480px){
             width: 500px;
         }
-        @media(max-width: 1087px){
-            width: 60%;
+        @media(max-width: 1024px){
+            width: 100%;
         }
+    }
+    @media(max-width: 1024px){
+        padding-inline: 30px;
     }
 `
 export const Fita = styled.div`
@@ -220,7 +261,7 @@ export const ContentCatalog = styled.div`
 `
 export const Buttons = styled.div` 
     margin-top: 30px;
-    width:  580px;
+    width: 580px;
     display: flex;
     gap: 15px;
     justify-content: space-between;
@@ -289,7 +330,9 @@ export const Colors = styled.div`
     @media(max-width: 1087px){
         width: 60%;
     }
-    
+    @media(max-width: 768px){
+        width: 100%;
+    }
 `
 export const YourArt = styled.input`
     background-color: #0e264b;

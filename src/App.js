@@ -1,6 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 import Home from "./Pages/Home/Index"
-import Background from "./images/background.jpg"
 
 const GlobalStyle = createGlobalStyle`
 *{
@@ -9,7 +8,6 @@ const GlobalStyle = createGlobalStyle`
   margin: 0;
 }
 body{
-  background-image: url(${Background});
   font-family: "Paytone One", sans-serif;
 }
 
