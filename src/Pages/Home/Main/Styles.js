@@ -41,6 +41,7 @@ export const Warnings = styled.section`
     padding-inline: 100px;
     height: 230px;
     display: flex;
+    justify-content: space-between;
     @media(max-width: 1024px){
         padding-inline: 30px;
     }
@@ -120,7 +121,7 @@ export const ContentEnterprise = styled.div`
         width: 290px;
         @media(max-width: 1024px){
             width: 100%;
-            height: 500px;;
+            height: 430px;;
         }
     }
     @media(max-width: 1024px){
@@ -162,6 +163,7 @@ export const Catalog = styled.section`
         }
         @media(max-width: 1024px){
             width: 100%;
+            text-align: center;
         }
     }
     @media(max-width: 1024px){
@@ -291,6 +293,10 @@ export const Buttons = styled.div`
             width: 90px;
             font-size: .8rem;
         }
+        @media(max-width: 380px){
+            width: 78px;
+            padding-inline: 1px;
+        }
     }
     @media(max-width: 1480px){
         gap: 10px;
@@ -318,7 +324,10 @@ export const ButtonSelect = styled.button`
     @media(max-width: 1480px){
         font-size: .9rem;
     }
-    
+    @media(max-width: 380px){
+        width: 78px;
+        padding-inline: 1px;
+    }
 `
 export const Colors = styled.div`
     display: flex;

@@ -3,6 +3,9 @@ import styled from "styled-components"
 export const Contact = styled.section`
     margin-top: 100px;
     padding-inline: 100px;
+    @media(max-width: 1024px){
+        padding-inline: 30px;
+    }
 `
 export const ContentContact = styled.div`
     display: flex;
@@ -16,8 +19,14 @@ export const ContentContact = styled.div`
         font-weight: 100;
         color: #0b337a;
     }
+    @media(max-width: 1024px){
+        text-align: center;
+    }
 `
 export const Left = styled.div`
     width: 45%;
-    height: 300px;
+    @media(max-width: 1024px){
+        text-align: center;
+        width: 100%;
+    }
 `
