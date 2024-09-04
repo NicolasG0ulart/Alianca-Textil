@@ -3,7 +3,7 @@ import Home from "./Pages/Home/Index"
 import Sobre from "./Pages/About/About"
 import Catalog from "./Pages/Catalog/Catalog"
 import Contact from "./Pages/Contact/Contact"
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 const GlobalStyle = createGlobalStyle`
 *{
@@ -22,15 +22,14 @@ body{
 function App() {
   return (
     <>
+      <GlobalStyle/>
       <Router>
-        <GlobalStyle/>
-        
-
         <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/sobre" element={<Sobre/>} />
-        <Route path="/catalogo" element={<Catalog/>} />
-        <Route path="/contato" element={<Contact/>} />
+          <Route path="/" element={<Home/>} />
+          <Route path="/sobre" element={<Sobre/>} />
+          <Route path="/catalogo" element={<Catalog/>} />
+          <Route path="/contato" element={<Contact/>} />
+          <Route path="*" element="Página não encontrada" />
         </Routes>
 
       </Router>
