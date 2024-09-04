@@ -3,7 +3,9 @@ import styled from "styled-components"
 export const ContentContact = styled.section`
     padding: 100px 100px;
      color: #0e264b;
-
+    @media(max-width: 1500px){
+        padding-inline 45px
+    }
     @media(max-width: 1024px){
         padding-inline: 30px;
     }
@@ -30,6 +32,14 @@ export const Map = styled.div`
             border-radius: 5px;
             loading: lazy;
         }
+        
+        @media(max-width: 1024px){
+            width: 100%;
+        }
+    }
+    @media(max-width: 1024px){
+        flex-direction: column;
+        align-items: center;
     }
 `
 export const Contato = styled.div`
@@ -37,6 +47,9 @@ export const Contato = styled.div`
     display: flex;
     section{
         width: 50%;
+        @media(max-width: 1024px){
+            width: 100%;
+        }
     }
      h3{
         font-size: 2rem;
@@ -61,6 +74,9 @@ export const Contato = styled.div`
             width: 30%;
             &::placeholder{
                 color: ghostwhite;
+            }
+            @media(max-width: 1024px){
+                width: 100%;
             }
         }
         textarea{  
@@ -88,11 +104,16 @@ export const Contato = styled.div`
             font-family: "Paytone One", sans-serif;
             font-size: 1rem;
             color: ghostwhite;
+            @media(max-width: 1024px){
+                width: 100%;
+            }
         }
     }
 
     @media(max-width: 1024px){
         padding-inline: 30px;
+        flex-direction: column;
+        align-items: center;
     }
 `
 export const Number = styled.div`
@@ -108,6 +129,13 @@ export const Number = styled.div`
     p{
         margin-top: 10px; 
     }
-    div{
+    @media(max-width: 1024px){
+        margin-top: 50px;
+        padding: 0;
+        gap: 30px;
+        width: 100%;
+    }
+    @media(max-width: 768px){
+        flex-direction: column;
     }
 `
