@@ -10,11 +10,13 @@ export const Contact = styled.section`
 export const ContentContact = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     h3{
         color: #0e264b;
         font-size: 2rem;
     }
     p{
+        margin-top: 30px;
         font-size: 1.2rem;
         font-weight: 100;
         color: #0b337a;
@@ -28,5 +30,19 @@ export const Left = styled.div`
     @media(max-width: 1024px){
         text-align: center;
         width: 100%;
+    }
+`
+export const Button = styled.button`
+    width: 250px;
+    height: 50px;
+    background-color: #0b337a;
+    border-style: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 700;
+    &:hover{
+        cursor: pointer;
+        background
     }
 `

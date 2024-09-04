@@ -9,13 +9,16 @@ export default function Contact(){
                 <S.ContentContact>
                     <S.Left>
                         <h3>Contate-nos</h3>
-                        <p>Estamos aqui para ajudar! Se você tiver dúvidas, sugestões ou precisa de suporte, não hesite em nos contatar.</p>
+                        <p>
+                            Está precisando falar com a gente? Ou até mesmo vir até a nossa empresa?
+                            Estamos aqui para ajudar! Se você tiver dúvidas, sugestões ou precisa de suporte, não hesite em nos contatar.
+                        </p>
 
                         <div>
                             
                         </div>
                     </S.Left>
-
+                    <S.Button>Contato</S.Button>
                 </S.ContentContact>
             </S.Contact>
         </>
