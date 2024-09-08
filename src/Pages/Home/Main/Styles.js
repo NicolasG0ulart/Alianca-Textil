@@ -48,9 +48,7 @@ export const Warnings = styled.section`
     @media(max-width: 768px){
         padding-inline: 30px;
         gap: 50px;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
+        overflow: hidden;
     }
 `
 export const Frame = styled.div`

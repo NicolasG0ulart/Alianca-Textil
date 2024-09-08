@@ -4,6 +4,7 @@ import Sobre from "./Pages/About/About"
 import Catalog from "./Pages/Catalog/Catalog"
 import Contact from "./Pages/Contact/Contact"
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import Background from "./images/background-site.png"
 
 const GlobalStyle = createGlobalStyle`
 *{
@@ -13,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
 }
 body{
   font-family: "Paytone One", sans-serif;
+  background-image: url(${Background});
 }
 
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import * as S from "./Styles"
 import Contact from "../../../Components/Contact/Contact"
+import Footer from "../../../Components/Footer/Footer"
 
 import { FaUserTie } from "react-icons/fa";
 import { useState } from 'react'
@@ -54,14 +55,14 @@ export default function Main(){
 
                     <S.Frame>
                         <FaUserTie size={30} color="#0e264b"/>
-                        <h3>Vagas</h3>
-                        <p>Clique aqui e veja todas nossas vagas em aberto</p>
+                        <h3>Catálogo</h3>
+                        <p>Clique aqui e conheça todas as nossas cores</p>
                     </S.Frame>
 
                     <S.Frame>
                         <FaUserTie size={30} color="#0e264b"/>
-                        <h3>Vagas</h3>
-                        <p>Clique aqui e veja todas nossas vagas em aberto</p>
+                        <h3>Contato</h3>
+                        <p>Precisa entrar em contato? Clique aqui</p>
                     </S.Frame>
                 </S.Warnings>
 
@@ -140,6 +141,7 @@ export default function Main(){
 
 
                 <Contact/>
+                <Footer/>
             </S.Main>
         </>
     )
