@@ -14,15 +14,26 @@ export const ContentContact = styled.div`
     h3{
         color: #0e264b;
         font-size: 2rem;
+        @media(max-width: 768px){
+            text-align: left;
+        }
     }
     p{
         margin-top: 30px;
         font-size: 1.2rem;
         font-weight: 100;
         color: #0b337a;
+        @media(max-width: 768px){
+            text-align: left;
+        }
     }
     @media(max-width: 1024px){
         text-align: center;
+    }
+    @media(max-width: 768px){
+        align-items: start;
+        gap: 50px;
+        flex-direction: column;
     }
 `
 export const Left = styled.div`
@@ -44,5 +55,8 @@ export const Button = styled.button`
     &:hover{
         cursor: pointer;
         background
+    }
+    @media(max-width: 768px){
+        width: 100%;
     }
 `

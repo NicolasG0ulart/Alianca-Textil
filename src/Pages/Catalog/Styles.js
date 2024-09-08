@@ -10,7 +10,7 @@ export const Fita = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 18%;
+    gap: 13%;
     align-items: center;
     font-family: ${(props) => props.font};
 
@@ -24,12 +24,31 @@ export const Fita = styled.div`
         width: 100%;
         height: 10px;
         background-color: ${(props) => props.colorFriso};
+        @media(max-width: 510px){
+            height: 8px;   
+        }  
     }
     h4{
         font-size: 2.8rem;
         @media(max-width: 1480px){
             font-size: 2.2rem;
         }
+    }
+    @media(max-width: 1024px){
+        h4:nth-of-type(2) {
+            display: none;
+        }
+    }
+    @media(max-width: 510px){
+        height: 90px;  
+        h4{
+            font-size: 1.8rem;  
+        }    
+    }
+    @media(max-width: 425px){ 
+        h4{
+            font-size: 1.3rem;  
+        }    
     }
 `
 export const FitaTwo = styled.div`
@@ -42,7 +61,7 @@ export const FitaTwo = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 18%;
+    gap: 13%;
     align-items: center;
     font-family: ${(props) => props.font};
 
@@ -52,6 +71,9 @@ export const FitaTwo = styled.div`
         width: 100%;
         height: 15px;
         background-color: ${(props) => props.colorFriso};
+        @media(max-width: 510px){
+            height: 10px;   
+        }  
     }
     span{
         position: absolute;
@@ -59,15 +81,31 @@ export const FitaTwo = styled.div`
         width: 100%;
         height: 15px;
         background-color: ${(props) => props.colorFriso};
-    }
-    span:nth-of-type(2) {
-        
+        @media(max-width: 510px){
+            height: 10px;   
+        }  
     }
     h4{
         font-size: 2.8rem;
         @media(max-width: 1480px){
             font-size: 2.2rem;
         }
+    }
+    @media(max-width: 1024px){
+        h4:nth-of-type(2) {
+            display: none;
+        }
+    } 
+    @media(max-width: 510px){
+        height: 90px;  
+        h4{
+            font-size: 1.8rem;  
+        }    
+    }
+    @media(max-width: 425px){ 
+        h4{
+            font-size: 1.3rem;  
+        }    
     }
 `
 export const FitaThree = styled.div`
@@ -79,7 +117,7 @@ export const FitaThree = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 18%;
+    gap: 13%;
     align-items: center;
     font-family: ${(props) => props.font};
     div{
@@ -88,6 +126,9 @@ export const FitaThree = styled.div`
         width: 100%;
         height: 30px;
         background-image: url(${Mescla});
+        @media(max-width: 510px){
+            height: 20px;   
+        }  
     }
     span{
         position: absolute;
@@ -95,16 +136,34 @@ export const FitaThree = styled.div`
         width: 100%;
         height: 7px;
         background-color: ${(props) => props.colorFriso};
+        @media(max-width: 510px){
+            bottom: 20px;
+            height: 5px;   
+        }  
     }
     h4{
         margin-top: -40px;
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         @media(max-width: 1480px){
-            font-size: 2rem;
+            font-size: 2.2rem;
         }
     }
-    @media(max-width: 1087px){
-        width: 100%;
+    @media(max-width: 1024px){
+        h4:nth-of-type(2) {
+            display: none;
+        }
+    }
+    @media(max-width: 510px){
+        height: 90px;  
+        h4{
+            margin-top: -20px;
+            font-size: 1.8rem;  
+        }    
+    } 
+    @media(max-width: 425px){ 
+        h4{
+            font-size: 1.3rem;  
+        }    
     }
 `
 export const ContentCatalog = styled.div`
@@ -114,14 +173,17 @@ export const ContentCatalog = styled.div`
         text-align: center;
         font-size: 1.8rem;
         color: #0e264b;
+        @media(max-width: 1024px){
+            padding-inline: 30px;
+        }
+        @media(max-width: 768px){
+            text-align: start;
+        }
+        @media(max-width: 550px){
+            font-size: 1.5rem;
+        }
     }
-    @media(max-width: 1480px){
-        gap: 30px;
-    }
-    @media(max-width: 1087px){
-        display: flex;
-        justify-content: center;
-    }
+
 `
 export const Buttons = styled.div` 
     margin-top: 50px;
@@ -131,6 +193,14 @@ export const Buttons = styled.div`
     justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
+
+    @media(max-width: 768px){
+        padding-inline: 30px;
+        justify-content: space-between;
+    }
+    @media(max-width: 530px){
+        gap: 15px;
+    }
 `
 export const Button = styled.button`
     border-style: none;
@@ -146,25 +216,26 @@ export const Button = styled.button`
     &:hover{
         cursor: pointer;
     }
-
-    @media(max-width: 1480px){
-        width: 100px;
-        height: 45px;
-        font-size: .9rem;
+    @media(max-width: 530px){
+        width: 150px;
     }
-    @media(max-width: 1480px){
-        width: 90px;
-        font-size: .8rem;
+    @media(max-width: 400px){
+        width: 120px;
     }
-    @media(max-width: 380px){
-        width: 78px;
-        padding-inline: 1px;
-        }
 `
 export const Select = styled.div`
     margin-top: 30px;
     display: flex;
     gap: 30px;
+    @media(max-width: 768px){
+        padding-inline: 30px;
+        width: 100%;
+    }
+    @media(max-width: 500px){
+        gap: 25px;
+        flex-direction: column;
+        padding-inline: 0px;
+    }
 
 `
 export const Elasticos = styled.section`
@@ -172,7 +243,9 @@ export const Elasticos = styled.section`
     margin-top: 60px;
     padding-inline: 100px;
     width: 100%;
-    
+    @media(max-width: 1024px){
+        padding-inline: 30px;
+    } 
 `
 export const YourArt = styled.input`
     background-color: #0e264b;
@@ -190,6 +263,9 @@ export const YourArt = styled.input`
         font-size: 1.3rem;
         color: #0b337a;
     }
+    @media(max-width: 1024px){
+        width: 100%;
+    }
 `
 export const ButtonSelect = styled.button`
     width: 200px;
@@ -206,9 +282,8 @@ export const ButtonSelect = styled.button`
     @media(max-width: 1480px){
         font-size: .9rem;
     }
-    @media(max-width: 380px){
-        width: 78px;
-        padding-inline: 1px;
+    @media(max-width: 768px){
+        width: 100%;
     }
 `
 export const Edit = styled.div`
@@ -218,4 +293,10 @@ export const Edit = styled.div`
 
     margin-top: 120px;
     width: 100%;
+    @media(max-width: 1024px){
+        padding-inline: 30px;
+    }
+    @media(max-width: 530px){
+        margin-top: 80px;
+    }
 `

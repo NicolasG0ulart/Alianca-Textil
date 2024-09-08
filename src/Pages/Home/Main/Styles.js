@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Banner from "../../../images/banner-home.png"
 import BannerMobile from "../../../images/banner-mobile.png"
-import Mescla from "../../../images/mescla.PNG"
 
 export const Main = styled.main`
     .banner{
@@ -48,7 +47,9 @@ export const Warnings = styled.section`
     @media(max-width: 768px){
         padding-inline: 30px;
         gap: 50px;
-        overflow: hidden;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
     }
 `
 export const Frame = styled.div`
@@ -100,6 +101,9 @@ export const Enterprise = styled.section`
         @media(max-width: 1024px){
             text-align: center;
         }
+        @media(max-width: 768px){
+            text-align: left;
+        }
     }
     img{
         width: 170px;
@@ -109,6 +113,7 @@ export const Enterprise = styled.section`
     @media(max-width: 1024px){
         padding-inline: 30px;
     }
+    
 `
 export const ContentEnterprise = styled.div`
     display: flex;
@@ -141,223 +146,34 @@ export const Text = styled.div`
         width: 100%;
         text-align: center;
     }
+    @media(max-width: 768px){
+        text-align: left;
+    }
 `
 export const Catalog = styled.section`
     padding: 60px 100px;
+    height: 500px;
+    display: flex;
+    justify-content: space-between;
     h1{
-        color: #0e264b;
+        color: #fff;
         font-size: 2rem;
         @media(max-width: 1024px){
             text-align: center;
         }
     }
-    .left{
-        width: 700px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        @media(max-width: 1480px){
-            width: 500px;
-        }
-        @media(max-width: 1024px){
-            width: 100%;
-            text-align: center;
-        }
-    }
-    @media(max-width: 1024px){
-        padding-inline: 30px;
-    }
-`
-export const Fita = styled.div`
-    position: relative;
-    background-color: ${(props) => props.color};
-    color: ${(props) => props.colorText};
-    height: 120px;
-    width: 700px;
-    display: flex;
-    justify-content: center;;
-    align-items: center;
-    span{
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 10px;
-        background-color: ${(props) => props.colorFriso};
-    }
-    h4{
-        font-size: 2.8rem;
-        @media(max-width: 1480px){
-            font-size: 2.2rem;
-        }
-    }
-    @media(max-width: 1480px){
-        width: 500px;
-        height: 100px;
-    }
-    @media(max-width: 1087px){
-        width: 100%;
-    }
-`
-export const FitaTwo = styled.div`
-    position: relative;
-    background-color: ${(props) => props.color};
-    color: ${(props) => props.colorText};
-    height: 120px;
-    width: 700px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    div{
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 30px;
-        background-image: url(${Mescla});
-    }
-    span{
-        position: absolute;
-        bottom: 30px;
-        width: 100%;
-        height: 7px;
-        background-color: ${(props) => props.colorFriso};
-    }
-    h4{
-        margin-top: -40px;
-        font-size: 2.5rem;
-        @media(max-width: 1480px){
-            font-size: 2rem;
-        }
-    }
-    @media(max-width: 1480px){
-        width: 500px;
-        height: 100px;
-    }
-    @media(max-width: 1087px){
-        width: 100%;
-    }
 `
 export const ContentCatalog = styled.div`
     margin-top: 30px;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    p{
-        font-size: 1.2rem;
-        font-weight: 100;
-        color: #0b337a;
+    gap: 30px;
+    
+    img{
+        width: 300px;
+        border-radius: 3px;
     }
-    .left{
-        @media(max-width: 1480px){
-            gap: 30px;
-        }
-    }
-    @media(max-width: 1480px){
-        gap: 30px;
-    }
-    @media(max-width: 1087px){
-        display: flex;
-        justify-content: center;
-    }
-`
-export const Buttons = styled.div` 
-    margin-top: 30px;
-    width: 580px;
-    display: flex;
-    gap: 15px;
-    justify-content: space-between;
-    flex-wrap: wrap;
-
-    button{
-        border-style: none;
-        box-shadow: 2px 4px 7px -1px rgba(0,0,0,0.43);
-        border-radius: 5px;
-        background-color: hotpink;
-        width: 120px;
-        height: 50px;
-        padding: 5px 10px;
-        font-size: 1.1rem;
-        font-family: "Paytone One", sans-serif;
-
-        &:hover{
-            cursor: pointer;
-        }
-
-        @media(max-width: 1480px){
-            width: 100px;
-            height: 45px;
-            font-size: .9rem;
-        }
-        @media(max-width: 1480px){
-            width: 90px;
-            font-size: .8rem;
-        }
-        @media(max-width: 380px){
-            width: 78px;
-            padding-inline: 1px;
-        }
-    }
-    @media(max-width: 1480px){
-        gap: 10px;
-        width: 100%;
-    }
-`
-export const Select = styled.div`
-    margin-top: 30px;
-    display: flex;
-    justify-content: space-between;
-
-`
-export const ButtonSelect = styled.button`
-    width: 100px;
-    height: 50px;
-    background-color: ${(props) => props.bgColor};
-    border-style: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    color: #fff;
-    font-weight: 700;
-    &:hover{
-        cursor: pointer;
-    }
-    @media(max-width: 1480px){
-        font-size: .9rem;
-    }
-    @media(max-width: 380px){
-        width: 78px;
-        padding-inline: 1px;
-    }
-`
-export const Colors = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    @media(max-width: 1480px){
-        width: 40%;
-    }
-    @media(max-width: 1087px){
-        width: 60%;
-    }
-    @media(max-width: 768px){
-        width: 100%;
-    }
-`
-export const YourArt = styled.input`
-    background-color: #0e264b;
-    height: 50px;
-    border-style: none;
-    border-radius: 5px;
-    width: 100%;
-    font-size: 1.3rem;
-    color: #fff;
-    font-weight: 700;
-    padding-left: 15px;
-
-    &::placeholder{
-        font-size: 1.3rem;
-        color: #0b337a;
-    }
-    @media(max-width: 1480px){
-        height: 45px;
-        font-size: 1.1rem;
+    img:nth-of-type(2) {
+        width: 280px;
+        height: 290px;
     }
 `
