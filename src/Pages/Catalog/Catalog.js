@@ -1,189 +1,146 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React from "react";
+import Header from "../../Components/Header/Index";
+import Footer from "../../Components/Footer/Footer"
+import * as S from "./Styles"
+import { useState } from "react";
 
-// Definição de cores e escalas
-const colors = [
-    { name: 'MARFIM', color: '#F5F5DC', scale: 'Neutro' },
-    { name: 'VANILLA', color: '#F3E5AB', scale: 'Amarelo' },
-    { name: 'BRANCO', color: '#FFFFFF', scale: 'Branco' },
-    { name: 'MASTRUZ', color: '#DFF2BF', scale: 'Verde' },
-    { name: 'BISCOITO', color: '#F5DEB3', scale: 'Amarelo' },
-    // ... outras cores
-];
 
-const scales = [
-    { name: 'Azul', color: '#00CED1' },
-    { name: 'Verde', color: '#00FF00' },
-    { name: 'Branco', color: '#FFFFFF' },
-    { name: 'Neutro', color: '#D2B48C' },
-    { name: 'Amarelo', color: '#F3E5AB' },
-    // ... outras escalas
-];
+export default function Catalog() {
+    const [fonts] = useState([
+        {font: "Escolha a fonte desejada", nameFont: "Escolha a fonte desejada"},
+        {font: "Protest Guerrilla", nameFont: "Protest Guerrilla"},
+        {font: "Pacifico", nameFont: "Pacifico"},
+        {font: "Permanent Marker", nameFont: "Permanent Marker"},
+        {font: "Fascinate Inline", nameFont: "Fascinate Inline"},
+        {font: "Nerko One", nameFont: "Nerko One"},
+        {font: "Paytone One", nameFont: "Paytone One"}
+    ])
+    const [font, setFont] = useState("Paytone One")
 
-// Componentes com Styled-Components
-const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 16px;
-`;
+    const [colors] = useState([
+        { name: 'Amazonas', color: '#20331B' },
+        { name: 'Amarelo', color: 'yellow' },
+        { name: 'Amarelo Luminoso', color: '#c6ff56' },
+        { name: 'Azul BB', color: 'lightblue' },
+        { name: 'Branco', color: '#fff' },
+        { name: 'Bordô', color: '#4c0013' },
+        { name: 'Cinza', color: '#8c8c8c' },
+        { name: 'Corsa', color: '#a06f53' },
+        { name: 'Chiclete', color: '#f74780' },
+        { name: 'Fluence', color: '#089080' },
+        { name: 'Grafite', color: '#4d4b4d' },
+        { name: 'Jeans', color: '#233758' },
+        { name: 'Laranja', color: '#ea5c0e' },
+        { name: 'Laranja Cítrico', color: '#fc4b08' },
+        { name: 'Lilás', color: '#bf9bde' },
+        { name: 'Louise', color: '#805a46' },
+        { name: 'Marinho', color: '#11114e' },
+        { name: 'Marfim', color: '#efd3af' },
+        { name: 'Pink', color: '#ff0084' },
+        { name: 'Preto', color: '#000' },
+        { name: 'Rosa BB', color: '#ff91b9' },
+        { name: 'Roxo', color: 'purple' },
+        { name: 'Rosa Fluor', color: '#ff007f' },
+        { name: 'Royal', color: '#0404e2' },
+        { name: 'Salmão', color: '#fb998e' },
+        { name: 'Tulipero', color: '#9786aa' },
+        { name: 'Turquesa', color: '#0097ff' },
+        { name: 'Verde Fluor', color: '#09ff14' },
+        { name: 'Verde Bandeira', color: '#229a00' },
+        { name: 'Vermelho', color: 'red' },
 
-const Header = styled.header`
-  text-align: center;
-  padding: 32px;
-  h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-  }
-  p {
-    font-size: 1.25rem;
-  }
-`;
 
-const SearchInput = styled.input`
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  margin-bottom: 8px;
-`;
 
-const Button = styled.button`
-  width: 100%;
-  padding: 8px;
-  background-color: #008080;
-  color: white;
-  border: none;
-  cursor: pointer;
-`;
+    ])
 
-const ScaleList = styled.ul`
-  list-style-type: none;
-  padding: 0;
-  li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-  }
-  input {
-    margin-left: 8px;
-  }
-`;
-
-const ColorsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-  div {
-    cursor: pointer;
-    text-align: center;
-    p {
-      margin-top: 8px;
+    const [bgColor] = useState("#0e264b")
+    const [fundoColor, setFundoColor] = useState("#0b337a")
+    const [textColor, setTextColor] = useState("yellow")
+    const [frisoColor, setFrisoColor] = useState("yellow")
+    const [activeButton, setActiveButton] = useState("fundo")
+    const [art, setArt] = useState("Digite sua marca aqui!!")
+    function changeFundo() {
+        setActiveButton("fundo")
     }
-  }
-`;
+    function changeEscrita() {
+        setActiveButton("escrita")
+    }
+    function changeFriso() {
+        setActiveButton("friso")
+    }
+    function changeColor(color) {
+        if (activeButton === "fundo") {
+            setFundoColor(color)
+        } else if (activeButton === "escrita") {
+            setTextColor(color)
+        } else if (activeButton === "friso") {
+            setFrisoColor(color)
+        }
+    }
+    function handleChange(event) {
+        setArt(event.target.value)
+    }
+    function handleChangeFont(event){
+        setFont(event.target.value)
+    }
 
-const ModalOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
-const ModalContent = styled.div`
-  background-color: white;
-  padding: 32px;
-  border-radius: 8px;
-  text-align: center;
-  position: relative;
-`;
+    return (
+        <>
+            <Header />
+            <S.ContentCatalog>
+                <h1>
+                Explore nosso catálogo de cores e veja como sua arte ganharia vida em um elástico personalizado. Experimente diferentes combinações e personalize ainda mais, digitando a sua marca desejada para ver como ela aparece. Descubra o visual perfeito e crie um design exclusivo que reflete seu estilo!
+                </h1>
 
-const CloseButton = styled.button`
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-`;
+                <S.Buttons>
+                    {colors.map((item) => (
+                        <S.Button bgColor={item.color} bgImg={item.bgImg} onClick={()=> changeColor(item.color)} >{item.name}</S.Button>
+                    ))}
+                </S.Buttons>
 
-const App = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedScales, setSelectedScales] = useState([]);
-  const [selectedColor, setSelectedColor] = useState(null);
+                <S.Edit>
+                    <S.YourArt onChange={handleChange} value={art} type="text" placeholder="Digite sua arte aqui"/>
+                    <S.Select>
+                        <S.ButtonSelect bgColor={bgColor} onClick={changeFundo}>Fundo</S.ButtonSelect>
+                        <S.ButtonSelect bgColor={bgColor} onClick={(changeEscrita)}>Escrita</S.ButtonSelect>
+                        <S.ButtonSelect bgColor={bgColor} onClick={changeFriso}>Friso</S.ButtonSelect>
+                    </S.Select>
 
-  const handleSearchChange = (e) => setSearchTerm(e.target.value);
-  const handleScaleChange = (scale) => {
-    setSelectedScales(prev =>
-      prev.includes(scale) ? prev.filter(s => s !== scale) : [...prev, scale]
-    );
-  };
+                    <select placeholder="Escolha a fonte" onChange={handleChangeFont}>
+                        {fonts.map((item) => (
+                            <option value={item.font}>{item.nameFont}</option>
+                        ))}
+                    </select>
+                </S.Edit>
 
-  const handleColorClick = (color) => setSelectedColor(color);
-  const handleCloseModal = () => setSelectedColor(null);
+                <S.Elasticos>
+                    <S.Fita font={font} color={fundoColor} colorText={textColor} colorFriso={frisoColor}>
+                        <span></span>
+                        <h4>{art}</h4>
+                        <h4>{art}</h4>
+                    </S.Fita> 
+                    
+                    <S.FitaTwo font={font} color={fundoColor} colorText={textColor} colorFriso={frisoColor}>
+                        <div></div>
+                        <span></span>
+                        <span></span>
+                        <h4>{art}</h4>
+                        <h4>{art}</h4>
+                    </S.FitaTwo>
 
-  const filteredColors = colors.filter(color => {
-    const matchesSearch = color.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesScale = selectedScales.length === 0 || selectedScales.includes(color.scale);
-    return matchesSearch && matchesScale;
-  });
+                    <S.FitaThree font={font} color={fundoColor} colorText={textColor} colorFriso={frisoColor}>
+                        <div></div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <h4>{art}</h4>
+                        <h4>{art}</h4>
+                    </S.FitaThree>                      
+                </S.Elasticos>
+            </S.ContentCatalog>
 
-  return (
-    <Container>
-      <Header>
-        <h1>CARTELA DE CORES</h1>
-        <p>Cartela de Cores</p>
-      </Header>
-      <div className="flex">
-        <aside style={{ width: '25%', padding: '16px' }}>
-          <SearchInput
-            type="text"
-            placeholder="Procurar Cor"
-            value={searchTerm}
-            onChange={handleSearchChange}
-          />
-          <Button>BUSCAR</Button>
-          <h2>ESCALA DE CORES</h2>
-          <ScaleList>
-            {scales.map(scale => (
-              <li key={scale.name}>
-                <div style={{ width: '16px', height: '16px', backgroundColor: scale.color }}></div>
-                <input
-                  type="checkbox"
-                  checked={selectedScales.includes(scale.name)}
-                  onChange={() => handleScaleChange(scale.name)}
-                />{' '}
-                {scale.name}
-              </li>
-            ))}
-          </ScaleList>
-        </aside>
-        <main style={{ width: '75%', padding: '16px' }}>
-          <ColorsGrid>
-            {filteredColors.map((color, index) => (
-              <div key={index} onClick={() => handleColorClick(color)}>
-                <div style={{ width: '100%', height: '80px', backgroundColor: color.color }}></div>
-                <p>{color.name}</p>
-              </div>
-            ))}
-          </ColorsGrid>
-        </main>
-      </div>
-      {selectedColor && (
-        <ModalOverlay>
-          <ModalContent>
-            <CloseButton onClick={handleCloseModal}>&times;</CloseButton>
-            <div style={{ width: '100%', height: '100%', backgroundColor: selectedColor.color }}></div>
-            <p>{selectedColor.name}</p>
-          </ModalContent>
-        </ModalOverlay>
-      )}
-    </Container>
-  );
-};
-
-export default App;
+            <Footer/>
+        </>
+    )
+}

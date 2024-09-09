@@ -6,6 +6,7 @@ export const HeaderContainer = styled.section`
     }
 `
 export const Header = styled.header`
+    background-color: #fff;
     witdh: 100%;
     height: 80px;
     padding-inline: 100px;

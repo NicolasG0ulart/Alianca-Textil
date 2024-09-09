@@ -15,7 +15,7 @@ export const Map = styled.div`
     display: flex;
     justify-content: space-between;
     section{
-        width: 50%;
+        width: 45%;
         h3{
             font-size: 2rem;
         }
