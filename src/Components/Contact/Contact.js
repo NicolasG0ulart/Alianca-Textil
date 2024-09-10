@@ -1,5 +1,6 @@
 import React from "react"
 import * as S from "./Styles"
+import { Link } from "react-router-dom"
 
 export default function Contact(){
 
@@ -18,7 +19,8 @@ export default function Contact(){
                             
                         </div>
                     </S.Left>
-                    <S.Button>Contato</S.Button>
+
+                    <Link to="/contato"><S.Button>Contato</S.Button></Link>
                 </S.ContentContact>
             </S.Contact>
         </>

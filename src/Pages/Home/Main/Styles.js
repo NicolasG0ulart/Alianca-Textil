@@ -58,6 +58,7 @@ export const Frame = styled.div`
     border-radius: 10px;
     width: 260px;
     height: 160px;
+    transition: .3s;
     
     padding: 20px 30px;
 
@@ -72,6 +73,7 @@ export const Frame = styled.div`
     }
     &:hover{
        cursor: pointer;
+       transform: scale(1.05);
     }
     @media(max-width: 1024px){
         width: 220px;
@@ -90,6 +92,7 @@ export const Frame = styled.div`
         flex: 0 0 80%;
         height: 190px;
     }
+
 `
 
 export const Enterprise = styled.section`

@@ -2,6 +2,8 @@ import React from "react";
 import * as S from "./Styles"
 import Contact from "../../../Components/Contact/Contact"
 import Footer from "../../../Components/Footer/Footer"
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 import { FaUserTie } from "react-icons/fa";
 import Embalagem from "../../../images/embalagem.png"
@@ -9,6 +11,12 @@ import Embalagem from "../../../images/embalagem.png"
 // import Pear from "../../../images/produtos/pear tree.jpeg"
 // import Tovah from "../../../images/produtos/tovah.jpeg"
 // import Basic from "../../../images/produtos/basic wear.jpeg"
+
+const LinkR = styled(Link)`
+        color: #0e264b;
+        position: relative;
+        text-decoration: none;
+    `
 
 
 export default function Main(){
@@ -21,23 +29,29 @@ export default function Main(){
                 </div>
                 
                 <S.Warnings>
+                <LinkR to="/candidatar-se">
                     <S.Frame>
                         <FaUserTie size={30} color="#0e264b"/>
                         <h3>Vagas</h3>
                         <p>Clique aqui e veja todas nossas vagas em aberto</p>
                     </S.Frame>
+                </LinkR>
 
+                <LinkR to="/catalogo">
                     <S.Frame>
                         <FaUserTie size={30} color="#0e264b"/>
                         <h3>Catálogo</h3>
                         <p>Clique aqui e conheça todas as nossas cores</p>
                     </S.Frame>
+                </LinkR>
 
+                <LinkR to="/contato">
                     <S.Frame>
                         <FaUserTie size={30} color="#0e264b"/>
                         <h3>Contato</h3>
                         <p>Precisa entrar em contato? Clique aqui</p>
                     </S.Frame>
+                </LinkR>
                 </S.Warnings>
 
                 <S.Enterprise>

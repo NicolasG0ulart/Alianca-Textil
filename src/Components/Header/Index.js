@@ -25,7 +25,7 @@ const LinkR = styled(Link)`
         }
         &:hover:after{
             width: 100%;
-        }s
+        }
     `
 
 export default function Header(){
@@ -40,11 +40,12 @@ export default function Header(){
     return(
         <S.HeaderContainer>
             <S.Header>
-                <img src={Logo} alt="Logo da Empresa"/>
+            <Link to="/"><img src={Logo} alt="Logo da Empresa"/></Link>
                 <ul>
                     <li><LinkR to="/">Início</LinkR></li>
                     <li><LinkR to="/sobre">Sobre</LinkR></li>
                     <li><LinkR to="/catalogo">Catálogo Virtual</LinkR></li>
+                    <li><LinkR to="/trabalhe-conosco">Trabalhe Conosco</LinkR></li>
                     <li><LinkR to="/contato">Contato</LinkR></li>
                 </ul>
 
@@ -60,6 +61,7 @@ export default function Header(){
                     <li><FaHome/><Link to="/">INÍCIO</Link></li>
                     <li><HiInformationCircle/><Link to="/sobre">SOBRE</Link></li>
                     <li><IoColorPaletteSharp/><Link to="/catalogo">CATÁLOGO VIRTUAL</Link></li>
+                    <li><LinkR to="/trabalhe-conosco">TRABALHE CONOSCO</LinkR></li>
                     <li><FaPhoneVolume/><Link to="/contato">CONTATO</Link></li>
                 </ul>
             </S.HeaderMobile>

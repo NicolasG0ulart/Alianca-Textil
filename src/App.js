@@ -3,6 +3,7 @@ import Home from "./Pages/Home/Index"
 import Sobre from "./Pages/About/About"
 import Catalog from "./Pages/Catalog/Catalog"
 import Contact from "./Pages/Contact/Contact"
+import Apply from "./Pages/Apply/Apply"
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Background from "./images/background-site.png"
 
@@ -31,7 +32,11 @@ function App() {
           <Route path="/sobre" element={<Sobre/>} />
           <Route path="/catalogo" element={<Catalog/>} />
           <Route path="/contato" element={<Contact/>} />
+          <Route path="/candidatar-se" element={<Apply/>}/>
+          <Route path="/trabalhe-conosco" element="trabalha" />
           <Route path="*" element="Página não encontrada" />
+
+          
         </Routes>
 
       </Router>

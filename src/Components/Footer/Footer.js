@@ -7,8 +7,19 @@ export default function Footer(){
     return(
         <>
             <S.Footer>
-                <S.Logo src={Logo} alt="Logo da empresa"/>
-                <h1>Aliança Têxtil.</h1>
+                <div>
+                    <img src={Logo} alt="Logo do site"/>
+                    <p>"O segredo de um grande sucesso está no trabalho de uma grande equipe."</p>
+                </div>
+
+                <div>
+                    <ul>
+                        <li>Contato</li>
+                        <li>Sobre nós</li>
+                        <li>Instagram</li>
+                        <li>Linkedin</li>
+                    </ul>
+                </div>
             </S.Footer>
         </>
     )
