@@ -46,7 +46,7 @@ export default function Contact(){
                             <p>Comercial: (32) 99943-1256</p>
                             <p>Financeiro: (32) 99956-5091</p>
                             <p>Departamento Pessoal: (32) 99880-7858</p>
-                            <p>Representantes: Clique aqui</p>
+                            <p>Representante: Giovani</p>
                         </div>
                         <div>
                             <h3>Horários</h3>

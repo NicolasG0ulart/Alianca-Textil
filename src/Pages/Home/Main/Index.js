@@ -55,10 +55,10 @@ export default function Main(){
                 </S.Warnings>
 
                 <S.Enterprise>
-                    <h1>Quem Somos</h1>
 
                     <S.ContentEnterprise>
                         <S.Text>
+                            <h1>Quem Somos</h1>
                             <p>
                                 Há seis anos, estamos comprometidos em fornecer elasticidade, conforto e qualidade para a indústria de roupas íntimas.
                                 Localizada na cidade de Pequeri - MG, nossa empresa funciona 24 horas por dia,
