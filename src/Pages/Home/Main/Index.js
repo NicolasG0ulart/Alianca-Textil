@@ -7,10 +7,10 @@ import styled from "styled-components";
 
 import { FaUserTie } from "react-icons/fa";
 import Embalagem from "../../../images/embalagem.png"
-// import NAPJ from "../../../images/produtos/napj.jpeg"
-// import Pear from "../../../images/produtos/pear tree.jpeg"
-// import Tovah from "../../../images/produtos/tovah.jpeg"
-// import Basic from "../../../images/produtos/basic wear.jpeg"
+import NAPJ from "../../../images/produtos/napj.jpeg" 
+import Pear from "../../../images/produtos/pear tree.jpeg"
+import Tovah from "../../../images/produtos/tovah.jpeg"
+import Basic from "../../../images/produtos/basic wear.jpeg"
 
 const LinkR = styled(Link)`
         color: #0e264b;
@@ -78,10 +78,80 @@ export default function Main(){
                 <S.Catalog>
                     <h1>Conheça nossos produtos</h1>
 
-                    <S.ContentCatalog>
-                        {/* <img src={NAPJ} alt="imagem de um exemplo de nossos produtos"/>
-                        <img src={Pear} alt="imagem de um exemplo de nossos produtos"/> */}
-                    </S.ContentCatalog>
+ <S.ContentCatalog>
+  <div className="container">
+    <div className="card">
+    <img class="laiza" src={NAPJ} alt=""/>
+      <div className="text">
+        <h3>COBERTORES</h3>
+        <p>Saiba mais</p>
+      </div>
+    </div>
+
+    <div className="card">
+    <img class="laiza" src={NAPJ} alt=""/>
+    <div className="text">
+        <h3>LAMINADOS</h3>
+        <p>Saiba mais</p>
+      </div>
+    </div>
+
+    <div className="card">
+    <img class="laiza" src={NAPJ} alt=""/>
+    <div className="text">
+        <h3>TRATACRETO</h3>
+        <p>Saiba mais</p>
+      </div>
+    </div>
+  </div>
+  
+
+    <div className="card">
+    <img class="laiza" src={NAPJ} alt=""/>
+    <div className="text">
+        <h3>LAMINADOS</h3>
+        <p>Saiba mais</p>
+      </div>
+    </div>
+
+    <div className="container">
+    <div className="card">
+    <img class="laiza" src={NAPJ} alt=""/>
+      <div className="text">
+        <h3>COBERTORES</h3>
+        <p>Saiba mais</p>
+      </div>
+    </div>
+
+
+    <div className="card">
+    <img class="laiza" src={NAPJ} alt=""/>
+    <div className="text">
+        <h3>LAMINADOS</h3>
+        <p>Saiba mais</p>
+      </div>
+    </div>
+
+    <div className="card">
+    <img class="laiza" src={NAPJ} alt=""/>
+    <div className="text">
+        <h3>LAMINADOS</h3>
+        <p>Saiba mais</p>
+      </div>
+    </div>
+    <div className="card">
+    <img class="laiza" src={NAPJ} alt=""/>
+    <div className="text">
+        <h3>LAMINADOS</h3>
+        <p>Saiba mais</p>
+      </div>
+    </div>
+
+  </div>
+</S.ContentCatalog>
+
+
+
                 </S.Catalog>
 
 
