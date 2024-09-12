@@ -145,10 +145,40 @@ const LogoImage = styled.img`
 
 const Candidatar = () => {
   const [gender, setGender] = useState('');
+  const [job, setJob] = useState('');
   const [focusedFields, setFocusedFields] = useState({});
 
   useEffect(() => {
     InputMask({"mask": "(99) 99999-9999"}).mask(document.querySelector('#phone'));
+
+    // Recuperar o título da vaga do localStorage e definir o valor do campo "Cargo Desejado"
+    const selectedJob = localStorage.getItem('selectedJob');
+    switch (selectedJob) {
+      case 'MECÂNICO DE MANUTENÇÃO':
+        setJob('mechanic');
+        break;
+      case 'AUXILIAR DE PRODUÇÃO':
+        setJob('production');
+        break;
+      case 'ANALISTA DE SISTEMAS':
+        setJob('systems_analyst');
+        break;
+      case 'ENGENHEIRO CIVIL':
+        setJob('civil_engineer');
+        break;
+      case 'DESENVOLVEDOR WEB':
+        setJob('web_developer');
+        break;
+      case 'GERENTE DE PROJETOS':
+        setJob('project_manager');
+        break;
+      case 'ANALISTA FINANCEIRO':
+        setJob('financial_analyst');
+        break;
+      default:
+        setJob('');
+        break;
+    }
 
     setFocusedFields((prev) => ({
       ...prev,
@@ -211,17 +241,20 @@ const Candidatar = () => {
       <InputContainer>
         <StyledSelect
           id="job"
-          value={gender}
-          onChange={(e) => setGender(e.target.value)}
+          value={job}
+          onChange={(e) => setJob(e.target.value)}
           onFocus={() => handleFocus('job')}
           onBlur={(e) => handleBlur('job', e.target.value)}
           required
         >
           <option value="">Selecione o Cargo</option>
-          <option value="production">Auxiliar de produção</option>
-          <option value="packaging">Embalagem</option>
-          <option value="weaver">Tecelão</option>
-          <option value="admin">Auxiliar Administrativo</option>
+          <option value="mechanic">Mecânico de Manutenção</option>
+          <option value="production">Auxiliar de Produção</option>
+          <option value="systems_analyst">Analista de Sistemas</option>
+          <option value="civil_engineer">Engenheiro Civil</option>
+          <option value="web_developer">Desenvolvedor Web</option>
+          <option value="project_manager">Gerente de Projetos</option>
+          <option value="financial_analyst">Analista Financeiro</option>
         </StyledSelect>
         <Label htmlFor="job" active={true}>Cargo Desejado</Label>
       </InputContainer>
@@ -238,32 +271,20 @@ const Candidatar = () => {
           <option value="">Selecione o Gênero</option>
           <option value="male">Masculino</option>
           <option value="female">Feminino</option>
-          <option value="non-binary">Não-binário</option>
-          <option value="prefer-not-to-say">Prefiro não dizer</option>
+          <option value="other">Outro</option>
         </StyledSelect>
-        <Label htmlFor="gender" active={true}>Gênero</Label>
-      </InputContainer>
-
-      <InputContainer>
-        <Input
-          type="file"
-          id="resume"
-          accept=".pdf"
-          onFocus={() => handleFocus('resume')}
-          onBlur={(e) => handleBlur('resume', e.target.value)}
-        />
-        <Label htmlFor="resume" active={true}>Currículo (PDF)</Label>
+        <Label htmlFor="gender" active={focusedFields.gender}>Gênero</Label>
       </InputContainer>
 
       <InputContainer>
         <TextArea
-          id="cover_letter"
+          id="resume"
           placeholder=" "
+          onFocus={() => handleFocus('resume')}
+          onBlur={(e) => handleBlur('resume', e.target.value)}
           required
-          onFocus={() => handleFocus('cover_letter')}
-          onBlur={(e) => handleBlur('cover_letter', e.target.value)}
         />
-        <Label htmlFor="cover_letter" active={focusedFields.cover_letter}>Mensagem de Apresentação</Label>
+        <Label htmlFor="resume" active={focusedFields.resume}>Currículo</Label>
       </InputContainer>
 
       <StyledButton type="submit">Enviar</StyledButton>

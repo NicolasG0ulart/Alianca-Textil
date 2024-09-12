@@ -99,6 +99,7 @@ export const Enterprise = styled.section`
     padding: 60px 100px;
 
     h1{
+        margin-bottom: 50px;
         color: #0e264b;
         font-size: 2rem;
         @media(max-width: 1024px){
@@ -123,8 +124,8 @@ export const ContentEnterprise = styled.div`
     justify-content: space-between;
 
     .laiza{
-        height: 370px;
-        width: 290px;
+        height: 440px;
+        width: 400px;
         @media(max-width: 1024px){
             width: 100%;
             height: 430px;;

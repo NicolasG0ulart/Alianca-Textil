@@ -6,29 +6,31 @@ export const Footer = styled.footer`
     background-color: #fff;
     background-size: 100% 100%;
     width: 100%;
-    height: 300px;
+    height: 100px;
 
-    display: flex;
-    align-items: center;
-
-    div{
-        width: 50%;
+    ul{
         display: flex;
-        flex-direction: column;
-        gap: 50px;
+        align-items: center;
+        justify-content: space-between;
+
+        height: 100%;
+        width: 100%;
+        display: flex;
+        list-style: none;
+        text-decoration: none;
+        font-size: 1.4rem;
+        color: #0e264b;
+
+        li{
+            &:hover{
+                cursor: pointer;
+                color: #05934e;
+            }
+        }
 
         img{
-            width: 200px;
+            height: 80px;
         }
-        p{
-            width: 50%;
-            font-size: 1.2rem;
-            color: #0b337a;
-        }
-    }
-    
-    @media(max-width: 1024px){
-        padding-inline: 30px;
     }
 `
 export const Logo = styled.img`
