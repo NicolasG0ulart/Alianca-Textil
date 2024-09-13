@@ -125,6 +125,11 @@ export const ContentEnterprise = styled.div`
   justify-content: space-between;
   padding: 40px 20px;
 
+  @media(max-width: 1024px){
+    gap: 40px;
+    flex-direction: column;
+  }
+
   .laiza {
     width: 300px;
     height: auto;

@@ -7,8 +7,16 @@ export const Footer = styled.footer`
     width: 100%;
     display: flex;
     justify-content: space-between;
+    @media(max-width: 1024px){
+        padding-inline: 30px;
+    }
+        @media(max-width: 768px){
+            flex-direction: column;
+        }
 `
 export const Left = styled.div`
+    border: solid red;
+
     position: relative;
     display: flex;
     flex-direction: column;
@@ -17,11 +25,17 @@ export const Left = styled.div`
     h3{
         font-size: 2rem;
         color: #0b337a;
+        @media(max-width: 768px){
+            margin-top: 20px;
+        }
     }
     p{
         width: 60%;
         font-size: 1rem;
-        color: #0b337a;  
+        color: #0b337a;
+        @media(max-width: 768px){
+            width: 100%;
+        }
     }
     div{
         gap: 30px;
@@ -31,6 +45,8 @@ export const Left = styled.div`
     }
 `
 export const Right = styled.div`
+    border: solid red;
+
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -38,19 +54,47 @@ export const Right = styled.div`
         font-size: 2rem;
         color: #0b337a;
     }
+    h4{
+        font-size: 1.2rem;
+        color: #0b337a;
+    }
     p{
         font-size: 1rem;
-        color: #0b337a;  
+        color: #0b337a;
+        @media(max-width: 370px){
+            font-size: 0.9rem;
+        }
     }
-
-
 `
 export const Mid = styled.div`
+    border: solid red;
+
+    text-align: center;
     color: #0b337a;  
     padding-inline: 100px;
     background-color: #fff;
+    padding-bottom: 10px;
 
-    p{
-        text-align: center;
+    h5{
+        font-size: 1rem;
     }
+    p{ 
+        a{
+            color: #0b337a; 
+            text-decoration: none;
+        }
+    }
+    div{   
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        @media(max-width: 768px){
+            flex-direction: column;
+            margin-top: 20px;
+        } 
+    }
+    @media(max-width: 768px){
+        padding: 30px 30px;
+        text-align: start;
+    }       
 `
