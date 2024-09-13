@@ -1,20 +1,18 @@
 import styled from "styled-components";
 
 export const Footer = styled.footer`
-    margin-top: 100px;
-    padding: 50px 100px;
+    margin-top: 50px;
+    padding: 20px 100px;
     background-color: #fff;
-    background-size: 100% 100%;
     width: 100%;
-    height: 300px;
-
     display: flex;
     justify-content: space-between;
 `
 export const Left = styled.div`
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     width: 50%;
     h3{
         font-size: 2rem;
@@ -27,7 +25,7 @@ export const Left = styled.div`
     }
     div{
         gap: 30px;
-        margin-top: 25px;
+        margin-top: 15px;
         display: flex;
         flex-direction: row;
     }
@@ -35,7 +33,7 @@ export const Left = styled.div`
 export const Right = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     h3{
         font-size: 2rem;
         color: #0b337a;
@@ -48,6 +46,11 @@ export const Right = styled.div`
 
 `
 export const Mid = styled.div`
-    position: absolute;
-    top: 50px;
+    color: #0b337a;  
+    padding-inline: 100px;
+    background-color: #fff;
+
+    p{
+        text-align: center;
+    }
 `

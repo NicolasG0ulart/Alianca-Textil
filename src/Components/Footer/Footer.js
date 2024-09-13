@@ -13,33 +13,36 @@ export default function Footer(){
         <>
             <S.Footer>
                 <S.Left>
-                    <h3>Alinça Têxtil</h3>
-                    <p>"O segredo de um grande sucesso está no trabalho de uma grande equipe"</p>
                     <div>
                         <FaLinkedin size={50} color="0b337a"/>
                         <FaInstagramSquare size={50} color="0b337a"/>
-                        <FaWhatsappSquare size={50} color="0b337a"/>
+                        <FaWhatsappSquare size={50} color="0b337a"/>  
                     </div>
+                    <h3>Endereço</h3>
+                    <p>
+                            PEQUERI/MG - 36610-000<br />
+                            Nova Pequeri<br />
+                            Professora Nair Temponi - n° 56
+                    </p>  
                 </S.Left>
 
                 <S.Right>
-                    <h3>Endereço</h3>
-                    <p>
-                        PEQUERI/MG - 36610-000<br />
-                        Nova Pequeri<br />
-                        Professora Nair Temponi - n° 56
-                    </p>
+                    <h3>Contatos</h3>
+                    
                     <div>
-                        <p>aliancatextil@hotmail.com</p>
+                        <h4>Departamento Pessoal</h4>
                         <p>aliancatextilrh@hotmail.com</p>
-                        <p>faturamentoaliancatextil@outlook.com</p>
+                        <h4>Comercial</h4>
+                        <p>comercialaliancatextil@outlook.com</p>
                     </div>
                 </S.Right>
 
-                <S.Mid>
-                    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                </S.Mid>
             </S.Footer>
+            <S.Mid>
+                <p>
+                    Desenvolvido por: <br/>Nicolas Goulart, Diogo Barbosa e Bernardo Brigolini.
+                </p>
+            </S.Mid>
         </>
     )
 }
