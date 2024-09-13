@@ -7,10 +7,6 @@ import styled from "styled-components";
 
 import { FaUserTie } from "react-icons/fa";
 import Embalagem from "../../../images/embalagem.png"
-// import NAPJ from "../../../images/produtos/napj.jpeg"
-// import Pear from "../../../images/produtos/pear tree.jpeg"
-// import Tovah from "../../../images/produtos/tovah.jpeg"
-// import Basic from "../../../images/produtos/basic wear.jpeg"
 
 const LinkR = styled(Link)`
         color: #0e264b;

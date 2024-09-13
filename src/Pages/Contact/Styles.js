@@ -7,7 +7,8 @@ export const ContentContact = styled.section`
         padding-inline 45px
     }
     @media(max-width: 1024px){
-        padding-inline: 30px;
+        
+        padding: 50px 30px;
     }
 `
 
