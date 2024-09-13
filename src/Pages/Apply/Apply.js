@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import InputMask from 'react-input-mask'; // 
 import Logo from "../../images/logo.png";
+import emailjs from '@emailjs/browser'
 
 // Estilização do formulário e elementos
 const StyledForm = styled.form`
@@ -159,6 +160,33 @@ const Candidatar = () => {
   const [cover_letter, setCoverLetter] = useState('');
   const [focusedFields, setFocusedFields] = useState({});
 
+  function sendEmail(e){
+    e.preventDefault();
+
+  const templateParams = {
+    from_name: name,
+    cover_letter: cover_letter,
+    email: email,
+    job:job,
+    date:date,
+    phone:phone,
+    resume:resume,  
+
+  }
+
+  emailjs.send("service_d5hd1v1", "template_pd1k2el", templateParams, "hp6NM48KT69N81zP0")
+  .then((response) => {
+    console.log("EMAIL ENVIADO", response.status, response.text)
+    setName('')
+    sendEmail('')
+    setCoverLetter('')
+
+  }, (err) => {
+    console.log("ERRO:", err)
+  }) 
+  
+  }
+
   useEffect(() => {
     const selectedJob = localStorage.getItem('selectedJob');
     switch (selectedJob) {
@@ -231,25 +259,8 @@ const Candidatar = () => {
       cover_letter
     };
 
-    try {
-      const response = await fetch('http://localhost:5000/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-
-      if (response.ok) {
-        alert('Candidatura enviada com sucesso!');
-      } else {
-        alert('Erro ao enviar a candidatura. Tente novamente.');
-      }
-    } catch (error) {
-      console.error('Erro ao enviar a candidatura:', error);
-      alert('Erro ao enviar a candidatura. Tente novamente.');
-    }
-  };
+   
+  }
 
   return (
     <StyledForm onSubmit={handleSubmit}>
@@ -257,6 +268,7 @@ const Candidatar = () => {
         <LogoImage src={Logo} alt="Logo" />
       </LogoContainer>
       <h2>Candidatar-se à Vaga</h2>
+
 
       <InputContainer>
         <Input
@@ -369,9 +381,11 @@ const Candidatar = () => {
         />
         <Label htmlFor="cover_letter" active={focusedFields.cover_letter}>Mensagem de Apresentação</Label>
       </InputContainer>
-
       <StyledButton type="submit">Enviar</StyledButton>
+    
     </StyledForm>
+
+    
   );
 };
 
