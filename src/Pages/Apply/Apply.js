@@ -160,32 +160,26 @@ const Candidatar = () => {
   const [cover_letter, setCoverLetter] = useState('');
   const [focusedFields, setFocusedFields] = useState({});
 
-  function sendEmail(e){
-    e.preventDefault();
+  // function sendEmail(e){
+  //   e.preventDefault();
 
-  const templateParams = {
-    from_name: name,
-    cover_letter: cover_letter,
-    email: email,
-    job:job,
-    date:date,
-    phone:phone,
-    resume:resume,  
+  // const templateParams = {
+  //   from_name: name,
+  //   cover_letter: cover_letter,
+  //   email: email,
+  //   job:job,
+  //   date:date,
+  //   phone:phone,
+  //   resume:resume, 
+   
 
-  }
+  // }
 
-  emailjs.send("service_d5hd1v1", "template_pd1k2el", templateParams, "hp6NM48KT69N81zP0")
-  .then((response) => {
-    console.log("EMAIL ENVIADO", response.status, response.text)
-    setName('')
-    sendEmail('')
-    setCoverLetter('')
-
-  }, (err) => {
-    console.log("ERRO:", err)
-  }) 
+  // emailjs.send("service_d5hd1v1", "template_pd1k2el", templateParams, "hp6NM48KT69N81zP0")
   
-  }
+   
+  
+  // }
 
   useEffect(() => {
     const selectedJob = localStorage.getItem('selectedJob');
@@ -248,16 +242,7 @@ const Candidatar = () => {
       return;
     }
 
-    const formData = {
-      name,
-      email,
-      date,
-      phone,
-      job,
-      gender,
-      resume,
-      cover_letter
-    };
+    
 
    
   }
