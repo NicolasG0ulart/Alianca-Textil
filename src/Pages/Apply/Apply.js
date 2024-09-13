@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import InputMask from 'react-input-mask'; // 
 import Logo from "../../images/logo.png";
-import emailjs from '@emailjs/browser'
+// import emailjs from '@emailjs/browser'
 
 // Estilização do formulário e elementos
 const StyledForm = styled.form`
