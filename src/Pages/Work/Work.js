@@ -118,6 +118,7 @@ const FilterButton = styled(Button)`
 
   &:hover {
     background-color: #2c3e50;
+    
   }
 `;
 
@@ -179,6 +180,10 @@ const JobDescription = styled.p`
 const ApplyButton = styled(Button)`
   background-color: #2c3e50;
   margin-top: 10px;
+  font-size: 15px;
+  padding: 10px;
+  
+
 
   &:hover {
     background-color: #1a252f;
@@ -196,6 +201,7 @@ const App = () => {
     { title: 'DESENVOLVEDOR WEB', description: 'Desenvolver e manter websites...' },
     { title: 'GERENTE DE PROJETOS', description: 'Gerenciar projetos, coordenar equipes...' },
     { title: 'ANALISTA FINANCEIRO', description: 'Realizar análises financeiras, elaborar relatórios...' },
+    { title: 'BANCO DE TALENTOS', description: 'Banco de Talentos' },
   ];
 
   const filteredJobs = jobs.filter(job => job.title.toLowerCase().includes(filter.toLowerCase()));
