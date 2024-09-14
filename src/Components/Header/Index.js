@@ -8,6 +8,7 @@ import { FaHome } from "react-icons/fa";
 import { HiInformationCircle } from "react-icons/hi";
 import { IoColorPaletteSharp } from "react-icons/io5";
 import { FaPhoneVolume } from "react-icons/fa6";
+import { GiSewingMachine } from "react-icons/gi";
 
 const LinkR = styled(Link)`
         color: #0e264b;
@@ -58,11 +59,11 @@ export default function Header(){
 
             <S.HeaderMobile onClick={()=>openMenu()} className={menuOpen ? "menu-active" : ""}>
                 <ul>
-                    <li><FaHome/><Link to="/">INÍCIO</Link></li>
-                    <li><HiInformationCircle/><Link to="/sobre">SOBRE</Link></li>
-                    <li><IoColorPaletteSharp/><Link to="/catalogo">CATÁLOGO VIRTUAL</Link></li>
-                    <li><LinkR to="/trabalhe-conosco">TRABALHE CONOSCO</LinkR></li>
-                    <li><FaPhoneVolume/><Link to="/contato">CONTATO</Link></li>
+                    <li><FaHome/><LinkR to="/">INÍCIO</LinkR></li>
+                    <li><HiInformationCircle/><LinkR to="/sobre">SOBRE</LinkR></li>
+                    <li><IoColorPaletteSharp/><LinkR to="/catalogo">CATÁLOGO VIRTUAL</LinkR></li>
+                    <li><GiSewingMachine/><LinkR to="/trabalhe-conosco">TRABALHE CONOSCO</LinkR></li>
+                    <li><FaPhoneVolume/><LinkR to="/contato">CONTATO</LinkR></li>
                 </ul>
             </S.HeaderMobile>
         </S.HeaderContainer>

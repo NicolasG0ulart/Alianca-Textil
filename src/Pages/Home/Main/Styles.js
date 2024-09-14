@@ -186,7 +186,7 @@ export const ContentCatalog = styled.div`
     text-align: center;
 
     img {
-      width: 100%;
+      width: 200px;
       height: auto;
       transition: transform 0.3s ease;
     }

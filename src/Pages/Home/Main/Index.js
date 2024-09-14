@@ -79,34 +79,28 @@ export default function Main() {
                             <div className="card">
                                 <img class="laiza" src={NAPJ} alt="" />
                                 <div className="text">
-                                    <h3>COBERTORES</h3>
-                                    <p>Saiba mais</p>
+                                    <h3>Las Vegas 40MM</h3>
                                 </div>
                             </div>
 
                             <div className="card">
                                 <img class="laiza" src={NAPJ} alt="" />
                                 <div className="text">
-                                    <h3>LAMINADOS</h3>
-                                    <p>Saiba mais</p>
+                                    <h3>Las Vegas 35MM</h3>
                                 </div>
                             </div>
 
                             <div className="card">
                                 <img class="laiza" src={NAPJ} alt="" />
                                 <div className="text">
-                                    <h3>TRATACRETO</h3>
-                                    <p>Saiba mais</p>
+                                    <h3>Las Vegas 30MM</h3>
                                 </div>
                             </div>
                         </div>
-
-
                         <div className="card">
                             <img class="laiza" src={NAPJ} alt="" />
                             <div className="text">
-                                <h3>LAMINADOS</h3>
-                                <p>Saiba mais</p>
+                                <h3>Las Vegas 25MM</h3>
                             </div>
                         </div>
 
@@ -114,8 +108,7 @@ export default function Main() {
                             <div className="card">
                                 <img class="laiza" src={NAPJ} alt="" />
                                 <div className="text">
-                                    <h3>COBERTORES</h3>
-                                    <p>Saiba mais</p>
+                                    <h3>New York 40MM</h3>
                                 </div>
                             </div>
 
@@ -123,23 +116,20 @@ export default function Main() {
                             <div className="card">
                                 <img class="laiza" src={NAPJ} alt="" />
                                 <div className="text">
-                                    <h3>LAMINADOS</h3>
-                                    <p>Saiba mais</p>
+                                    <h3>New York 35MM</h3>
                                 </div>
                             </div>
 
                             <div className="card">
                                 <img class="laiza" src={NAPJ} alt="" />
                                 <div className="text">
-                                    <h3>LAMINADOS</h3>
-                                    <p>Saiba mais</p>
+                                    <h3>New York 30MM</h3>
                                 </div>
                             </div>
                             <div className="card">
                                 <img class="laiza" src={NAPJ} alt="" />
                                 <div className="text">
-                                    <h3>LAMINADOS</h3>
-                                    <p>Saiba mais</p>
+                                    <h3>New York 25MM</h3>
                                 </div>
                             </div>
 

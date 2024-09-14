@@ -73,6 +73,7 @@ export const HeaderMobile = styled.header`
     @media(max-width: 1024px){
         display: flex;
     }
+    z-index: 1000;
     transition: .5s;
     position: fixed;
     left: -100%;
@@ -106,6 +107,10 @@ export const HeaderMobile = styled.header`
             gap: 15px;
             align-items: center;
             height: 60px;
+         }
+        @media(max-width: 500px){
+            font-size: 1.5rem;
+            padding-inline: 10px;
         }
     }
 `

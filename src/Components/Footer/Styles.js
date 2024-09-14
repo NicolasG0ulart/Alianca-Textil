@@ -5,96 +5,50 @@ export const Footer = styled.footer`
     padding: 20px 100px;
     background-color: #fff;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    @media(max-width: 1024px){
-        padding-inline: 30px;
-    }
+    text-align: center;
+    color: #0e264b;
+
+    ul{
+        display: flex;
+        list-style: none;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        font-size: 1.5rem;
         @media(max-width: 768px){
+            align-items: start;
             flex-direction: column;
         }
-`
-export const Left = styled.div`
-    border: solid red;
-
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 50%;
-    h3{
-        font-size: 2rem;
-        color: #0b337a;
-        @media(max-width: 768px){
-            margin-top: 20px;
+    }
+    img{
+        height: 60px;
+        @media(max-width: 900px){
+            display: none;
         }
     }
-    p{
-        width: 60%;
-        font-size: 1rem;
-        color: #0b337a;
-        @media(max-width: 768px){
-            width: 100%;
-        }
-    }
-    div{
-        gap: 30px;
-        margin-top: 15px;
-        display: flex;
-        flex-direction: row;
-    }
-`
-export const Right = styled.div`
-    border: solid red;
-
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    h3{
-        font-size: 2rem;
-        color: #0b337a;
-    }
-    h4{
-        font-size: 1.2rem;
-        color: #0b337a;
-    }
-    p{
-        font-size: 1rem;
-        color: #0b337a;
-        @media(max-width: 370px){
-            font-size: 0.9rem;
-        }
-    }
-`
-export const Mid = styled.div`
-    border: solid red;
-
-    text-align: center;
-    color: #0b337a;  
-    padding-inline: 100px;
-    background-color: #fff;
-    padding-bottom: 10px;
-
     h5{
-        font-size: 1rem;
+        margin-top: 10px;
+        font-size: 1.3rem;
+        @media(max-width: 768px){
+            margin-top: 30px;
+        }
     }
-    p{ 
+    p{
+        margin-top: 5px;
+        font-size: 1.2rem;
+
         a{
-            color: #0b337a; 
+            color: #0e264b;
             text-decoration: none;
         }
     }
-    div{   
-        display: flex;
-        gap: 10px;
-        justify-content: center;
-        @media(max-width: 768px){
-            flex-direction: column;
-            margin-top: 20px;
-        } 
+
+    @media(max-width: 1024px){
+        padding-inline: 30px;
     }
     @media(max-width: 768px){
-        padding: 30px 30px;
         text-align: start;
-    }       
-`
+    }
+` 
