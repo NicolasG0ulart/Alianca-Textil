@@ -3,7 +3,7 @@ import * as S from "./Styles"
 import Footer from "../../../Components/Footer/Footer"
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-
+import lycra from "../../../images/lycra.png"
 import { FaUserTie } from "react-icons/fa";
 import Embalagem from "../../../images/embalagem.png"
 import NAPJ from "../../../images/produtos/napj.jpeg"
@@ -17,6 +17,10 @@ const LinkR = styled(Link)`
 
 export default function Main() {
 
+    const handleJobSelection = () => {
+        localStorage.setItem('selectedJob', 'BANCO DE TALENTOS');
+      };
+
     return (
         <>
             <S.Main>
@@ -25,13 +29,13 @@ export default function Main() {
                 </div>
 
                 <S.Warnings>
-                    <LinkR to="/candidatar-se">
-                        <S.Frame>
-                            <FaUserTie size={30} color="#0e264b" />
-                            <h3>Vagas</h3>
-                            <p>Clique aqui e veja todas nossas vagas em aberto</p>
-                        </S.Frame>
-                    </LinkR>
+                <LinkR to="/candidatar-se" onClick={handleJobSelection}>
+            <S.Frame>
+                <FaUserTie size={30} color="#0e264b" />
+                <h3>Vagas</h3>
+                <p>Clique aqui e veja todas nossas vagas em aberto</p>
+    </S.Frame>
+  </LinkR>
 
                     <LinkR to="/catalogo">
                         <S.Frame>
@@ -54,7 +58,7 @@ export default function Main() {
 
                     <S.ContentEnterprise>
                         <S.Text>
-                            <h1>Quem Somos</h1>
+                            <h1>Quem Somos </h1 > 
                             <p>
                                 Há seis anos, estamos comprometidos em fornecer elasticidade, conforto e qualidade para a indústria de roupas íntimas.
                                 Localizada na cidade de Pequeri - MG, nossa empresa funciona 24 horas por dia,
@@ -67,6 +71,10 @@ export default function Main() {
 
                         <div>
                             <img class="laiza" src={Embalagem} alt="Funcionária embalando caixa" />
+                        </div>
+
+                        <div>
+                            <img class="laiza" src={lycra} alt="Matéria-prima Lycra" />
                         </div>
                     </S.ContentEnterprise>
                 </S.Enterprise>
