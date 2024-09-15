@@ -13,44 +13,35 @@ export const Fita = styled.div`
     gap: 13%;
     align-items: center;
     font-family: ${(props) => props.font};
-
+    font-weight: ${(props) => props.fontWeight};
+    letter-spacing: ${(props) => props.spacing};
     overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
 
-    span{
+    span {
         position: absolute;
         bottom: 0;
         width: 100%;
         height: 10px;
         background-color: ${(props) => props.colorFriso};
-        @media(max-width: 510px){
+        @media(max-width: 510px) {
             height: 8px;   
         }  
     }
-    h4{
-        font-size: 2.8rem;
-        @media(max-width: 1480px){
-            font-size: 2.2rem;
-        }
+    h4 {
+        font-size: ${(props) => props.fontSize}; // Aplica o tamanho da fonte passado como prop
     }
-    @media(max-width: 1024px){
+    @media(max-width: 1024px) {
         h4:nth-of-type(2) {
             display: none;
         }
     }
-    @media(max-width: 510px){
+    @media(max-width: 510px) {
         height: 90px;  
-        h4{
-            font-size: 1.8rem;  
-        }    
     }
-    @media(max-width: 425px){ 
-        h4{
-            font-size: 1.3rem;  
-        }    
-    }
-`
+`;
+
 export const FitaTwo = styled.div`
     overflow: hidden;
     position: relative;
@@ -64,50 +55,52 @@ export const FitaTwo = styled.div`
     gap: 13%;
     align-items: center;
     font-family: ${(props) => props.font};
+    font-weight: ${(props) => props.fontWeight};
+    letter-spacing: ${(props) => props.spacing};
 
-    div{
+    div {
         position: absolute;
         bottom: 0;
         width: 100%;
         height: 15px;
         background-color: ${(props) => props.colorFriso};
-        @media(max-width: 510px){
+        @media(max-width: 510px) {
             height: 10px;   
         }  
     }
-    span{
+    span {
         position: absolute;
         top: 0px;
         width: 100%;
         height: 15px;
         background-color: ${(props) => props.colorFriso};
-        @media(max-width: 510px){
+        @media(max-width: 510px) {
             height: 10px;   
         }  
     }
-    h4{
-        font-size: 2.8rem;
-        @media(max-width: 1480px){
+    h4 {
+        font-size: ${(props) => props.fontSize}; // Aplica o tamanho da fonte passado como prop
+        @media(max-width: 1480px) {
             font-size: 2.2rem;
         }
     }
-    @media(max-width: 1024px){
+    @media(max-width: 1024px) {
         h4:nth-of-type(2) {
             display: none;
         }
     } 
-    @media(max-width: 510px){
+    @media(max-width: 510px) {
         height: 90px;  
-        h4{
+        h4 {
             font-size: 1.8rem;  
         }    
     }
-    @media(max-width: 425px){ 
-        h4{
+    @media(max-width: 425px) { 
+        h4 {
             font-size: 1.3rem;  
         }    
     }
-`
+`;
 export const FitaThree = styled.div`
     margin-top: 50px;
     position: relative;
@@ -120,52 +113,55 @@ export const FitaThree = styled.div`
     gap: 13%;
     align-items: center;
     font-family: ${(props) => props.font};
-    div{
+    font-weight: ${(props) => props.fontWeight};
+    letter-spacing: ${(props) => props.spacing};
+
+    div {
         position: absolute;
         bottom: 0;
         width: 100%;
         height: 30px;
         background-image: url(${Mescla});
-        @media(max-width: 510px){
+        @media(max-width: 510px) {
             height: 20px;   
         }  
     }
-    span{
+    span {
         position: absolute;
         bottom: 30px;
         width: 100%;
         height: 7px;
         background-color: ${(props) => props.colorFriso};
-        @media(max-width: 510px){
+        @media(max-width: 510px) {
             bottom: 20px;
             height: 5px;   
         }  
     }
-    h4{
+    h4 {
         margin-top: -40px;
-        font-size: 2.8rem;
-        @media(max-width: 1480px){
+        font-size: ${(props) => props.fontSize}; // Aplica o tamanho da fonte passado como prop
+        @media(max-width: 1480px) {
             font-size: 2.2rem;
         }
     }
-    @media(max-width: 1024px){
+    @media(max-width: 1024px) {
         h4:nth-of-type(2) {
             display: none;
         }
     }
-    @media(max-width: 510px){
+    @media(max-width: 510px) {
         height: 90px;  
-        h4{
+        h4 {
             margin-top: -20px;
             font-size: 1.8rem;  
         }    
     } 
-    @media(max-width: 425px){ 
-        h4{
+    @media(max-width: 425px) { 
+        h4 {
             font-size: 1.3rem;  
         }    
     }
-`
+`;
 export const ContentCatalog = styled.div`
     margin-top: 30px;
     h1{
@@ -248,11 +244,11 @@ export const Elasticos = styled.section`
     } 
 `
 export const YourArt = styled.input`
+    width: 100%;
     background-color: #0e264b;
     height: 60px;
     border-style: none;
     border-radius: 5px;
-    width: 30%;
     font-size: 1.3rem;
     color: #fff;
     font-weight: 700;
@@ -286,10 +282,42 @@ export const ButtonSelect = styled.button`
         width: 100%;
     }
 `
-export const Edit = styled.div`
+export const Left = styled.div`
+`
+export const Right = styled.div`
+    position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 400px;
+
+    select{
+        height: 60px;
+        width: 100%;
+        border-style: none;
+        border-radius: 5px;
+        position: absolute;
+        right: 0;
+        background-color: #0e264b;
+        color: #fff;
+        font-size: 1.3rem;
+        font-weight: 100;
+        font-family: "Paytone One", sans-serif;
+    }
+    div{
+        margin-top: 70px;
+        display: flex;
+        flex-direction: column;
+
+        label{
+            color: #0e264b;
+            font-size: 1.2rem;
+            font-weight: 100;
+        }
+    }
+`
+export const Edit = styled.div`
+    padding-inline: 100px;
+    display: flex;
+    justify-content: space-between;
 
     margin-top: 120px;
     width: 100%;
