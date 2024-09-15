@@ -13,6 +13,9 @@ const PageContainer = styled.div`
 
 const MainContent = styled.main`
   flex: 1;
+  @media(max-width: 1024px){
+      margin-top: 80px;
+  }
 `;
 
 const Container = styled.div`
