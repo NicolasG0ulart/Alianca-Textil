@@ -14,7 +14,7 @@ export const Fita = styled.div`
     align-items: center;
     font-family: ${(props) => props.font};
     font-weight: ${(props) => props.fontWeight};
-    letter-spacing: ${(props) => props.spacing};
+    letter-spacing: ${(props) => props.spacing}px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
@@ -30,15 +30,18 @@ export const Fita = styled.div`
         }  
     }
     h4 {
-        font-size: ${(props) => props.fontSize}; // Aplica o tamanho da fonte passado como prop
+        font-size: ${(props) => props.fontSize}px;
     }
     @media(max-width: 1024px) {
         h4:nth-of-type(2) {
             display: none;
         }
     }
-    @media(max-width: 510px) {
-        height: 90px;  
+    @media(max-width: 924px){
+        h4 {
+            font-size: ${(props) => props.fontSize / 1.5}px;
+            letter-spacing: ${(props) => props.spacing / 3}px;
+        }
     }
 `;
 
@@ -56,7 +59,7 @@ export const FitaTwo = styled.div`
     align-items: center;
     font-family: ${(props) => props.font};
     font-weight: ${(props) => props.fontWeight};
-    letter-spacing: ${(props) => props.spacing};
+    letter-spacing: ${(props) => props.spacing}px;
 
     div {
         position: absolute;
@@ -79,26 +82,18 @@ export const FitaTwo = styled.div`
         }  
     }
     h4 {
-        font-size: ${(props) => props.fontSize}; // Aplica o tamanho da fonte passado como prop
-        @media(max-width: 1480px) {
-            font-size: 2.2rem;
-        }
+        font-size: ${(props) => props.fontSize}px;
     }
     @media(max-width: 1024px) {
         h4:nth-of-type(2) {
             display: none;
         }
     } 
-    @media(max-width: 510px) {
-        height: 90px;  
+    @media(max-width: 924px){
         h4 {
-            font-size: 1.8rem;  
-        }    
-    }
-    @media(max-width: 425px) { 
-        h4 {
-            font-size: 1.3rem;  
-        }    
+            font-size: ${(props) => props.fontSize / 1.5}px;
+            letter-spacing: ${(props) => props.spacing / 3}px;
+        }
     }
 `;
 export const FitaThree = styled.div`
@@ -114,7 +109,7 @@ export const FitaThree = styled.div`
     align-items: center;
     font-family: ${(props) => props.font};
     font-weight: ${(props) => props.fontWeight};
-    letter-spacing: ${(props) => props.spacing};
+    letter-spacing: ${(props) => props.spacing}px;
 
     div {
         position: absolute;
@@ -139,27 +134,18 @@ export const FitaThree = styled.div`
     }
     h4 {
         margin-top: -40px;
-        font-size: ${(props) => props.fontSize}; // Aplica o tamanho da fonte passado como prop
-        @media(max-width: 1480px) {
-            font-size: 2.2rem;
-        }
+        font-size: ${(props) => props.fontSize}px;
     }
     @media(max-width: 1024px) {
         h4:nth-of-type(2) {
             display: none;
         }
     }
-    @media(max-width: 510px) {
-        height: 90px;  
+    @media(max-width: 924px){
         h4 {
-            margin-top: -20px;
-            font-size: 1.8rem;  
-        }    
-    } 
-    @media(max-width: 425px) { 
-        h4 {
-            font-size: 1.3rem;  
-        }    
+            font-size: ${(props) => props.fontSize / 1.5}px;
+            letter-spacing: ${(props) => props.spacing / 3}px;
+        }
     }
 `;
 export const ContentCatalog = styled.div`
@@ -208,6 +194,7 @@ export const Button = styled.button`
     padding: 5px 10px;
     font-size: 1.1rem;
     font-family: "Paytone One", sans-serif;
+    color: ${(props) => props.color};
 
     &:hover{
         cursor: pointer;
@@ -266,13 +253,16 @@ export const YourArt = styled.input`
 export const ButtonSelect = styled.button`
     width: 200px;
     height: 60px;
-    background-color: ${(props) => props.bgColor};
+    background-color: ${(props) => (props.isActive ? '#0b337a' : '#0e264b')};
     border-style: none;
     border-radius: 5px;
     font-size: 1.1rem;
     color: #fff;
     font-weight: 700;
+    border-bottom: ${(props) => (props.isActive ? '7px solid #019443' : 'none')};
     &:hover{
+        border-bottom: 7px solid #019443;
+        background-color: #0b337a;
         cursor: pointer;
     }
     @media(max-width: 1480px){
@@ -283,6 +273,13 @@ export const ButtonSelect = styled.button`
     }
 `
 export const Left = styled.div`
+    border: solid blue;
+    @media(max-width: 1200px){
+        width: 400px;
+    }
+    @media(max-width: 470px){
+        width: 100%;
+    }
 `
 export const Right = styled.div`
     position: relative;
@@ -301,6 +298,9 @@ export const Right = styled.div`
         font-size: 1.3rem;
         font-weight: 100;
         font-family: "Paytone One", sans-serif;
+        @media(max-width: 470px){
+            font-size: 1rem;
+        }
     }
     div{
         margin-top: 70px;
@@ -313,16 +313,25 @@ export const Right = styled.div`
             font-weight: 100;
         }
     }
+    @media(max-width: 470px){
+        border: solid hotpink;
+        width: 100%;
+    }
 `
 export const Edit = styled.div`
     padding-inline: 100px;
     display: flex;
+    gap: 50px;
     justify-content: space-between;
 
     margin-top: 120px;
     width: 100%;
     @media(max-width: 1024px){
         padding-inline: 30px;
+    }
+    @media(max-width: 768px){
+        align-items: center;
+        flex-direction: column;
     }
     @media(max-width: 530px){
         margin-top: 80px;
