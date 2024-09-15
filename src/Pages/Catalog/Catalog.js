@@ -21,7 +21,6 @@ export default function Catalog() {
     ])
     const [font, setFont] = useState("Paytone One")
     const [fontSize, setFontSize] = useState(40)
-    const [fontWeight, setfontWeight] = useState(500)
     const [letterSpacing, setletterSpacing] = useState(5)
 
     const [colors] = useState([
