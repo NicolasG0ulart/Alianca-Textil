@@ -90,9 +90,6 @@ export default function Catalog() {
     const handleFontSize = (event) => {
         setFontSize(event.target.value)
     }
-    const handleFontWeight = (event) => {
-        setfontWeight(event.target.value)
-    }
     const handleFontSpacing = (event) => {
         setletterSpacing(event.target.value)
     }
@@ -138,19 +135,19 @@ export default function Catalog() {
                 </S.Edit>
 
                 <S.Elasticos>
-                    <S.Fita font={font} color={fundoColor} colorText={textColor} colorFriso={frisoColor} fontSize={`${fontSize}px`} fontWeight={fontWeight} spacing={`${letterSpacing}px`}>
+                    <S.Fita font={font} color={fundoColor} colorText={textColor} colorFriso={frisoColor} fontSize={`${fontSize}px`}spacing={`${letterSpacing}px`}>
                         <span></span>
                         <h4>{art}</h4>
                     </S.Fita>
 
-                    <S.FitaTwo font={font} color={fundoColor} colorText={textColor} colorFriso={frisoColor} fontSize={`${fontSize}px`} fontWeight={fontWeight} spacing={`${letterSpacing}px`}>
+                    <S.FitaTwo font={font} color={fundoColor} colorText={textColor} colorFriso={frisoColor} fontSize={`${fontSize}px`} spacing={`${letterSpacing}px`}>
                         <div></div>
                         <span></span>
                         <span></span>
                         <h4>{art}</h4>
                     </S.FitaTwo>
 
-                    <S.FitaThree font={font} color={fundoColor} colorText={textColor} colorFriso={frisoColor} fontSize={`${fontSize}px`} fontWeight={fontWeight} spacing={`${letterSpacing}px`}>
+                    <S.FitaThree font={font} color={fundoColor} colorText={textColor} colorFriso={frisoColor} fontSize={`${fontSize}px`} spacing={`${letterSpacing}px`}>
                         <div></div>
                         <span></span>
                         <span></span>
