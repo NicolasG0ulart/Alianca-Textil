@@ -25,7 +25,7 @@ export default function Main() {
                 </div>
 
                 <S.Warnings>
-                    <LinkR to="/candidatar-se">
+                    <LinkR to="/trabalhe-conosco">
                         <S.Frame>
                             <FaUserTie size={30} color="#0e264b" />
                             <h3>Vagas</h3>
