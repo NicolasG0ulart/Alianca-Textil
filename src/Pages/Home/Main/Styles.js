@@ -101,7 +101,7 @@ export const Enterprise = styled.section`
     h1{
         margin-bottom: 50px;
         color: #0e264b;
-        font-size: 2rem;
+        font-size: 4rem;
         @media(max-width: 1024px){
             text-align: center;
         }
@@ -215,3 +215,4 @@ export const ContentCatalog = styled.div`
     }
   }
 `;
+
