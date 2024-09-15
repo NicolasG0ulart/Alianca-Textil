@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <title>Success Page</title>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .fixed-background {
+            background-attachment: fixed;
+        }
+        .btn-hover-effect {
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn-hover-effect:hover {
+            background-color: #333;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+        <div id="banner"></div>
+    <script type="text/babel">
+        function App() {
+            const handleButtonClick = () => {
+                document.getElementById('vagas-disponiveis').scrollIntoView({ behavior: 'smooth' });
+            };
+
+            return (
+                <div>
+                    <div className="relative h-screen bg-cover bg-center fixed-background" style={{ backgroundImage:'url(../src/images/fundo.jpg)' }}> 
+                        <div className="absolute inset-0 flex flex-col items-center justify-center">
+                            <p className="text-base text-gray-900 mb-2 font-bold">"O Sucesso está nos olhos daqueles que o procuram"</p>
+                            <h1 className="text-6xl font-bold text-black mb-4">VENHA TRABALHAR CONOSCO</h1>
+                            <button onClick={handleButtonClick} className="bg-black text-white py-2 px-4 rounded-full btn-hover-effect">Venha Conferir</button>
+                        </div>
+                    </div>
+                    <div id="vagas-disponiveis" className="h-screen flex flex-col items-center justify-start pt-10">
+                        <h2 className="text-6xl font-bold text-black">Vagas Disponíveis</h2>
+                    </div>
+                </div>
+        
+
+            );
+        }
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+
+
+</html>
