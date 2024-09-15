@@ -7,9 +7,11 @@ export const ContentContact = styled.section`
         padding-inline 45px
     }
     @media(max-width: 1024px){
-        
         padding: 50px 30px;
     }
+    @media(max-width: 1024px){
+      margin-top: 80px;
+  }
 `
 
 export const Map = styled.div`
@@ -112,7 +114,6 @@ export const Contato = styled.div`
     }
 
     @media(max-width: 1024px){
-        padding-inline: 30px;
         flex-direction: column;
         align-items: center;
     }

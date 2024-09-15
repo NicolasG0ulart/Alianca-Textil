@@ -165,7 +165,9 @@ export const ContentCatalog = styled.div`
             font-size: 1.5rem;
         }
     }
-
+    @media(max-width: 1024px){
+      margin-top: 80px;
+  }
 `
 export const Buttons = styled.div` 
     margin-top: 50px;

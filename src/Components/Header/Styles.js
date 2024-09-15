@@ -42,6 +42,7 @@ export const Header = styled.header`
         }
     }
     @media(max-width: 1024px){
+        z-index: 1000;
         position: fixed;
         width: 100%;
         top: 0;
