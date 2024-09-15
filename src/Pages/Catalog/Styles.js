@@ -273,7 +273,6 @@ export const ButtonSelect = styled.button`
     }
 `
 export const Left = styled.div`
-    border: solid blue;
     @media(max-width: 1200px){
         width: 400px;
     }
@@ -314,7 +313,6 @@ export const Right = styled.div`
         }
     }
     @media(max-width: 470px){
-        border: solid hotpink;
         width: 100%;
     }
 `

@@ -42,6 +42,9 @@ export const Header = styled.header`
         }
     }
     @media(max-width: 1024px){
+        position: fixed;
+        width: 100%;
+        top: 0;
         justify-content: center;
     }
     
@@ -76,6 +79,7 @@ export const HeaderMobile = styled.header`
     z-index: 1000;
     transition: .5s;
     position: fixed;
+    top: 80px;
     left: -100%;
     display: none;
     height: 100%;
