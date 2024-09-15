@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import InputMask from 'react-input-mask';
 import Logo from "../../images/logo.png";
 import emailjs from '@emailjs/browser';
-import { storage } from './firebase.js'; // Importar o Firebase Storage
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage"; // Métodos do Firebase Storage
-import { v4 as uuidv4 } from 'uuid'; // Gerar um ID único para o arquivo
+import { storage } from './firebase.js'; 
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage"; 
+import { v4 as uuidv4 } from 'uuid'; 
 
 
 // Estilização do formulário e elementos
@@ -160,20 +160,19 @@ const Candidatar = () => {
   const [date, setDate] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [resumeFile, setResumeFile] = useState(null); // Armazena o arquivo PDF
+  const [resumeFile, setResumeFile] = useState(null); 
   const [coverLetter, setCoverLetter] = useState('');
   const [focusedFields, setFocusedFields] = useState({});
 
-  // Atualizar o estado do arquivo no input de currículo
   const handleResumeChange = (e) => {
-    setResumeFile(e.target.files[0]); // Armazena o arquivo
+    setResumeFile(e.target.files[0]); 
   };
 
   const uploadResume = async () => {
     if (resumeFile) {
       const resumeRef = ref(storage, `resumes/${uuidv4()}-${resumeFile.name}`);
-      await uploadBytes(resumeRef, resumeFile); // Faz upload do arquivo
-      const downloadURL = await getDownloadURL(resumeRef); // Obtém o link do arquivo
+      await uploadBytes(resumeRef, resumeFile); 
+      const downloadURL = await getDownloadURL(resumeRef); 
       return downloadURL;
     }
     return null;
@@ -182,10 +181,7 @@ const Candidatar = () => {
   const sendEmail = async (e) => {
     e.preventDefault();
 
-    // Faz upload do arquivo antes de enviar o email
     const resumeURL = await uploadResume();
-
-    
 
     const templateParams = {
       from_name: name,
@@ -193,7 +189,7 @@ const Candidatar = () => {
       date: date,
       phone: phone,
       job: job,
-      resume: resumeURL, // Link do currículo no Firebase Storage
+      resume: resumeURL, 
       cover_letter: coverLetter,
     };
 
@@ -240,6 +236,13 @@ const Candidatar = () => {
         break;
     }
 
+    // Verificação de preenchimento automático
+    setTimeout(() => {
+      if (name) setFocusedFields((prev) => ({ ...prev, name: true }));
+      if (phone) setFocusedFields((prev) => ({ ...prev, phone: true }));
+      if (email) setFocusedFields((prev) => ({ ...prev, email: true }));
+    }, 500); // Pequeno atraso para garantir que o preenchimento automático seja capturado
+
     setFocusedFields({
       gender: true,
       job: true,
@@ -247,7 +250,7 @@ const Candidatar = () => {
       resume: true,
       cover_letter: false
     });
-  }, []);
+  }, [name, phone, email]);
 
   const handleFocus = (field) => {
     setFocusedFields((prev) => ({ ...prev, [field]: true }));
@@ -262,22 +265,21 @@ const Candidatar = () => {
 
     console.log('Submitting form with data:', { name, email, date, phone, job, gender, resumeFile, coverLetter });
 
-    // Valida data no formato dd/mm/yyyy
     const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d\d$/;
     if (!dateRegex.test(date)) {
       alert('Data deve estar no formato dd/mm/aaaa.');
       return;
     }
 
-    sendEmail(e); // Envia o email após validação
+    sendEmail(e); 
   };
 
   return (
     <StyledForm onSubmit={handleSubmit}>
       <LogoContainer>
-        <LogoImage src={Logo} alt="Logo" />
+        <LogoImage src={Logo} alt="Company Logo" />
       </LogoContainer>
-      <h2>Candidatar-se à Vaga: {job}</h2>
+      <h2>Candidatar-se para: {job}</h2>
 
       <InputContainer>
         <Input
@@ -286,10 +288,26 @@ const Candidatar = () => {
           value={name}
           onChange={(e) => setName(e.target.value)}
           onFocus={() => handleFocus('name')}
-          onBlur={(e) => handleBlur('name', e.target.value)}
-          required
+          onBlur={() => handleBlur('name', name)}
         />
-        <Label htmlFor="name" active={focusedFields.name}>Nome Completo</Label>
+        <Label htmlFor="name" active={focusedFields.name}>
+          Nome Completo
+        </Label>
+      </InputContainer>
+
+      <InputContainer>
+        <InputMask
+          mask="99/99/9999"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          onFocus={() => handleFocus('date')}
+          onBlur={() => handleBlur('date', date)}
+        >
+          {() => <Input id="date" />}
+        </InputMask>
+        <Label htmlFor="date" active={focusedFields.date}>
+          Data de Nascimento
+        </Label>
       </InputContainer>
 
       <InputContainer>
@@ -299,23 +317,11 @@ const Candidatar = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           onFocus={() => handleFocus('email')}
-          onBlur={(e) => handleBlur('email', e.target.value)}
-          required
+          onBlur={() => handleBlur('email', email)}
         />
-        <Label htmlFor="email" active={focusedFields.email}>Email</Label>
-      </InputContainer>
-
-      <InputContainer>
-        <InputMask
-          mask="99/99/9999"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          onFocus={() => handleFocus('date')}
-          onBlur={(e) => handleBlur('date', e.target.value)}
-        >
-          {(inputProps) => <Input {...inputProps} id="date" required />}
-        </InputMask>
-        <Label htmlFor="date" active={focusedFields.date}>Data de Nascimento (dd/mm/aaaa)</Label>
+        <Label htmlFor="email" active={focusedFields.email}>
+          Email
+        </Label>
       </InputContainer>
 
       <InputContainer>
@@ -324,11 +330,13 @@ const Candidatar = () => {
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           onFocus={() => handleFocus('phone')}
-          onBlur={(e) => handleBlur('phone', e.target.value)}
+          onBlur={() => handleBlur('phone', phone)}
         >
-          {(inputProps) => <Input {...inputProps} id="phone" required />}
+          {() => <Input id="phone" />}
         </InputMask>
-        <Label htmlFor="phone" active={focusedFields.phone}>Telefone</Label>
+        <Label htmlFor="phone" active={focusedFields.phone}>
+          Telefone
+        </Label>
       </InputContainer>
 
       <InputContainer>
@@ -337,50 +345,23 @@ const Candidatar = () => {
           value={gender}
           onChange={(e) => setGender(e.target.value)}
           onFocus={() => handleFocus('gender')}
-          onBlur={(e) => handleBlur('gender', e.target.value)}
-          required
+          onBlur={() => handleBlur('gender', gender)}
         >
-          <option value="">Selecione o Gênero</option>
-          <option value="Masculino">Masculino</option>
-          <option value="Feminino">Feminino</option>
-          <option value="Outro">Outro</option>
-          <option value="Prefiro não dizer">Prefiro não dizer</option>
+          <option value="">Selecione o gênero</option>
+          <option value="M">Masculino</option>
+          <option value="F">Feminino</option>
+          <option value="O">Outro</option>
         </StyledSelect>
-        <Label htmlFor="gender" active={focusedFields.gender}>Gênero</Label>
+        <Label htmlFor="gender" active={focusedFields.gender}>
+          Gênero
+        </Label>
       </InputContainer>
 
       <InputContainer>
-        <StyledSelect
-          id="job"
-          value={job}
-          onChange={(e) => setJob(e.target.value)}
-          onFocus={() => handleFocus('job')}
-          onBlur={(e) => handleBlur('job', e.target.value)}
-          required
-        >
-          <option value="">Selecione uma Vaga</option>
-          <option value="MECÂNICO DE MANUTENÇÃO">MECÂNICO</option>
-          <option value="AUXILIAR DE PRODUÇÃO">PRODUÇÃO</option>
-          <option value="ANALISTA DE SISTEMAS">ANALISTA DE SISTEMAS</option>
-          <option value="ENGENHEIRO CIVIL">ENGENHEIRO CIVIL</option>
-          <option value="DESENVOLVEDOR WEB">DESENVOLVEDOR WEB</option>
-          <option value="GERENTE DE PROJETOS">GERENTE DE PROJETOS</option>
-          <option value="ANALISTA FINANCEIRO">ANALISTA FINANCEIRO</option>
-          <option value="BANCO DE TALENTOS">BANCO DE TALENTOS</option>
-        </StyledSelect>
-        <Label htmlFor="job" active={focusedFields.job}>Vaga</Label>
-      </InputContainer>
-
-      <InputContainer>
-        <Input
-          type="file"
-          id="resume"
-          accept=".pdf"
-          onChange={handleResumeChange} // Atualiza o estado ao escolher o arquivo
-          onFocus={() => handleFocus('resume')}
-          onBlur={(e) => handleBlur('resume', e.target.value)}
-        />
-        <Label htmlFor="resume" active={focusedFields.resume}>Currículo (PDF)</Label>
+        <Input type="file" id="resume" onChange={handleResumeChange} />
+        <Label htmlFor="resume" active={focusedFields.resume}>
+          Anexar Currículo
+        </Label>
       </InputContainer>
 
       <InputContainer>
@@ -389,10 +370,11 @@ const Candidatar = () => {
           value={coverLetter}
           onChange={(e) => setCoverLetter(e.target.value)}
           onFocus={() => handleFocus('cover_letter')}
-          onBlur={(e) => handleBlur('cover_letter', e.target.value)}
-          required
+          onBlur={() => handleBlur('cover_letter', coverLetter)}
         />
-        <Label htmlFor="cover_letter" active={focusedFields.cover_letter}>Carta de Apresentação</Label>
+        <Label htmlFor="coverLetter" active={focusedFields.cover_letter}>
+          Carta de Apresentação
+        </Label>
       </InputContainer>
 
       <StyledButton type="submit">Enviar</StyledButton>
