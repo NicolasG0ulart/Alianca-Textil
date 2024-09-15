@@ -1,39 +1,54 @@
 import styled from "styled-components";
 
 export const Footer = styled.footer`
-    margin-top: 100px;
-    padding: 50px 100px;
+    margin-top: 50px;
+    padding: 20px 100px;
     background-color: #fff;
-    background-size: 100% 100%;
     width: 100%;
-    height: 100px;
+    text-align: center;
+    color: #0e264b;
 
     ul{
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        height: 100%;
-        width: 100%;
-        display: flex;
         list-style: none;
-        text-decoration: none;
-        font-size: 1.4rem;
-        color: #0e264b;
 
-        li{
-            &:hover{
-                cursor: pointer;
-                color: #05934e;
-            }
-        }
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-        img{
-            height: 80px;
+        font-size: 1.5rem;
+        @media(max-width: 768px){
+            align-items: start;
+            flex-direction: column;
         }
     }
-`
-export const Logo = styled.img`
-    width: 150px;
-    height: 70px;
-`
+    img{
+        height: 60px;
+        @media(max-width: 900px){
+            display: none;
+        }
+    }
+    h5{
+        margin-top: 10px;
+        font-size: 1.3rem;
+        @media(max-width: 768px){
+            margin-top: 30px;
+        }
+    }
+    p{
+        margin-top: 5px;
+        font-size: 1.2rem;
+
+        a{
+            color: #0e264b;
+            text-decoration: none;
+        }
+    }
+
+    @media(max-width: 1024px){
+        padding-inline: 30px;
+    }
+    @media(max-width: 768px){
+        text-align: start;
+    }
+` 

@@ -120,23 +120,22 @@ export const Enterprise = styled.section`
     
 `
 export const ContentEnterprise = styled.div`
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 20px;
 
-    .laiza{
-        height: 440px;
-        width: 400px;
-        @media(max-width: 1024px){
-            width: 100%;
-            height: 430px;;
-        }
-    }
-    @media(max-width: 1024px){
-        gap: 50px;
-        flex-direction: column;
-        align-items: center;
-    }
-`
+  @media(max-width: 1024px){
+    gap: 40px;
+    flex-direction: column;
+  }
+
+  .laiza {
+    width: 300px;
+    height: auto;
+  }
+`;
+
 export const Text = styled.div`
     width: 40vw;
     padding-top: 30px;
@@ -154,30 +153,65 @@ export const Text = styled.div`
         text-align: left;
     }
 `
-export const Catalog = styled.section`
-    padding: 60px 100px;
-    height: 500px;
-    display: flex;
-    justify-content: space-between;
-    h1{
-        color: #fff;
-        font-size: 2rem;
-        @media(max-width: 1024px){
-            text-align: center;
-        }
-    }
-`
+export const Catalog = styled.div`
+  text-align: center;
+  padding: 40px 20px;
+
+  h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+`;
+
+
 export const ContentCatalog = styled.div`
-    margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+
+  .container {
     display: flex;
-    gap: 30px;
-    
-    img{
-        width: 300px;
-        border-radius: 3px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .card {
+    position: relative;
+    width: 300px;
+    margin: 10px;
+    color: black;
+    font-size: 18px;
+    overflow: hidden;
+    text-align: center;
+
+    img {
+      width: 200px;
+      height: auto;
+      transition: transform 0.3s ease;
     }
-    img:nth-of-type(2) {
-        width: 280px;
-        height: 290px;
+
+    &:hover img {
+      transform: scale(1.1);
+      filter: brightness(0.7);
     }
-`
+
+    .text {
+      margin-top: 10px;
+      h3 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      p {
+        margin: 5px 0 0;
+        font-size: 16px;
+      }
+    }
+
+    &:hover .text {
+      color: #0e264b;
+    }
+  }
+`;

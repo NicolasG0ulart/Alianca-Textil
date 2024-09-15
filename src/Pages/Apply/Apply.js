@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import InputMask from 'inputmask'; // Bibliotéca para máscaras
+import InputMask from 'react-input-mask';
 import Logo from "../../images/logo.png";
+import emailjs from '@emailjs/browser';
+import { storage } from './firebase.js'; 
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage"; 
+import { v4 as uuidv4 } from 'uuid'; 
 
-// Estilização do formulário e elementos
+
 const StyledForm = styled.form`
   max-width: 100%;
   width: 90%;
@@ -147,7 +151,6 @@ const LogoImage = styled.img`
   object-fit: contain;
 `;
 
-// Componente Principal
 const Candidatar = () => {
   const [gender, setGender] = useState('');
   const [job, setJob] = useState('');
@@ -155,46 +158,88 @@ const Candidatar = () => {
   const [date, setDate] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [resume, setResume] = useState('');
-  const [cover_letter, setCoverLetter] = useState('');
+  const [resumeFile, setResumeFile] = useState(null); 
+  const [coverLetter, setCoverLetter] = useState('');
   const [focusedFields, setFocusedFields] = useState({});
 
+  const handleResumeChange = (e) => {
+    setResumeFile(e.target.files[0]); 
+  };
+
+  const uploadResume = async () => {
+    if (resumeFile) {
+      const resumeRef = ref(storage, `resumes/${uuidv4()}-${resumeFile.name}`);
+      await uploadBytes(resumeRef, resumeFile); 
+      const downloadURL = await getDownloadURL(resumeRef); 
+      return downloadURL;
+    }
+    return null;
+  };
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+
+    const resumeURL = await uploadResume();
+
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      date: date,
+      phone: phone,
+      job: job,
+      resume: resumeURL, 
+      cover_letter: coverLetter,
+    };
+
+    emailjs.send("service_d5hd1v1", "template_pd1k2el", templateParams, "hp6NM48KT69N81zP0")
+      .then(response => {
+        console.log('Email sent successfully:', response);
+        alert('Email enviado com sucesso!');
+      })
+      .catch(error => {
+        console.error('Error sending email:', error);
+        alert('Erro ao enviar o email.');
+      });
+  };
+
   useEffect(() => {
-    InputMask({"mask": "(99) 99999-9999"}).mask(document.querySelector('#phone'));
-
-    // Máscara para o campo de data
-    InputMask({"mask": "99/99/9999"}).mask(document.querySelector('#date'));
-
     const selectedJob = localStorage.getItem('selectedJob');
     switch (selectedJob) {
       case 'MECÂNICO DE MANUTENÇÃO':
-        setJob('mechanic');
+        setJob('MECÂNICO');
         break;
       case 'AUXILIAR DE PRODUÇÃO':
-        setJob('production');
+        setJob('PRODUÇÃO');
         break;
       case 'ANALISTA DE SISTEMAS':
-        setJob('systems_analyst');
+        setJob('ANALISTA DE SISTEMAS');
         break;
       case 'ENGENHEIRO CIVIL':
-        setJob('civil_engineer');
+        setJob('ENGENHEIRO CIVIL');
         break;
       case 'DESENVOLVEDOR WEB':
-        setJob('web_developer');
+        setJob('DESENVOLVEDOR WEB');
         break;
       case 'GERENTE DE PROJETOS':
-        setJob('project_manager');
+        setJob('GERENTE DE PROJETOS');
         break;
       case 'ANALISTA FINANCEIRO':
-        setJob('financial_analyst');
+        setJob('ANALISTA FINANCEIRO');
         break;
       case 'BANCO DE TALENTOS':
-        setJob('Talent_bank');
+        setJob('BANCO DE TALENTOS');
         break;
       default:
         setJob('');
         break;
     }
+
+    // Verificação de preenchimento automático
+    setTimeout(() => {
+      if (name) setFocusedFields((prev) => ({ ...prev, name: true }));
+      if (phone) setFocusedFields((prev) => ({ ...prev, phone: true }));
+      if (email) setFocusedFields((prev) => ({ ...prev, email: true }));
+    }, 500); // Pequeno atraso para garantir que o preenchimento automático seja capturado
 
     setFocusedFields({
       gender: true,
@@ -203,7 +248,7 @@ const Candidatar = () => {
       resume: true,
       cover_letter: false
     });
-  }, []);
+  }, [name, phone, email]);
 
   const handleFocus = (field) => {
     setFocusedFields((prev) => ({ ...prev, [field]: true }));
@@ -213,131 +258,83 @@ const Candidatar = () => {
     setFocusedFields((prev) => ({ ...prev, [field]: !!value }));
   };
 
-  const handleDateChange = (e) => {
-    const { value } = e.target;
-    setDate(value);
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validate date format
+    console.log('Submitting form with data:', { name, email, date, phone, job, gender, resumeFile, coverLetter });
+
     const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d\d$/;
     if (!dateRegex.test(date)) {
-      alert('Por favor, insira uma data válida no formato dd/mm/yyyy.');
+      alert('Data deve estar no formato dd/mm/aaaa.');
       return;
     }
 
-    const formData = {
-      name,
-      email,
-      date,
-      phone,
-      job,
-      gender,
-      resume,
-      cover_letter
-    };
-
-    try {
-      const response = await fetch('http://localhost:5000/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-
-      if (response.ok) {
-        alert('Candidatura enviada com sucesso!');
-      } else {
-        alert('Erro ao enviar a candidatura. Tente novamente.');
-      }
-    } catch (error) {
-      console.error('Erro ao enviar a candidatura:', error);
-      alert('Erro ao enviar a candidatura. Tente novamente.');
-    }
+    sendEmail(e); 
   };
 
   return (
     <StyledForm onSubmit={handleSubmit}>
       <LogoContainer>
-        <LogoImage src={Logo} alt="Logo" />
+        <LogoImage src={Logo} alt="Company Logo" />
       </LogoContainer>
-      <h2>Candidatar-se à Vaga</h2>
+      <h2>Candidatar-se para: {job}</h2>
 
       <InputContainer>
         <Input
           type="text"
           id="name"
-          placeholder=" "
-          required
+          value={name}
           onChange={(e) => setName(e.target.value)}
           onFocus={() => handleFocus('name')}
-          onBlur={(e) => handleBlur('name', e.target.value)}
+          onBlur={() => handleBlur('name', name)}
         />
-        <Label htmlFor="name" active={focusedFields.name}>Nome Completo</Label>
+        <Label htmlFor="name" active={focusedFields.name}>
+          Nome Completo
+        </Label>
+      </InputContainer>
+
+      <InputContainer>
+        <InputMask
+          mask="99/99/9999"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          onFocus={() => handleFocus('date')}
+          onBlur={() => handleBlur('date', date)}
+        >
+          {() => <Input id="date" />}
+        </InputMask>
+        <Label htmlFor="date" active={focusedFields.date}>
+          Data de Nascimento
+        </Label>
       </InputContainer>
 
       <InputContainer>
         <Input
           type="email"
           id="email"
-          placeholder=" "
-          required
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
           onFocus={() => handleFocus('email')}
-          onBlur={(e) => handleBlur('email', e.target.value)}
+          onBlur={() => handleBlur('email', email)}
         />
-        <Label htmlFor="email" active={focusedFields.email}>Email</Label>
+        <Label htmlFor="email" active={focusedFields.email}>
+          Email
+        </Label>
       </InputContainer>
 
       <InputContainer>
-        <Input
-          type="text"
-          id="date"
-          placeholder=" "
-          value={date}
-          onChange={handleDateChange}
-          onFocus={() => handleFocus('date')}
-          onBlur={(e) => handleBlur('date', e.target.value)}
-        />
-        <Label htmlFor="date" active={focusedFields.date}>Data De Nascimento</Label>
-      </InputContainer>
-
-      <InputContainer>
-        <Input
-          type="tel"
-          id="phone"
-          placeholder=" "
-          required
+        <InputMask
+          mask="(99) 99999-9999"
+          value={phone}
           onChange={(e) => setPhone(e.target.value)}
           onFocus={() => handleFocus('phone')}
-          onBlur={(e) => handleBlur('phone', e.target.value)}
-        />
-        <Label htmlFor="phone" active={focusedFields.phone}>Telefone</Label>
-      </InputContainer>
-
-      <InputContainer>
-        <StyledSelect
-          id="job"
-          value={job}
-          onChange={(e) => setJob(e.target.value)}
-          onFocus={() => handleFocus('job')}
-          onBlur={(e) => handleBlur('job', e.target.value)}
-          required
+          onBlur={() => handleBlur('phone', phone)}
         >
-          <option value="">Selecione o Cargo</option>
-          <option value="mechanic">Mecânico de Manutenção</option>
-          <option value="production">Auxiliar de Produção</option>
-          <option value="systems_analyst">Analista de Sistemas</option>
-          <option value="civil_engineer">Engenheiro Civil</option>
-          <option value="web_developer">Desenvolvedor Web</option>
-          <option value="project_manager">Gerente de Projetos</option>
-          <option value="financial_analyst">Analista Financeiro</option>
-          <option value="Talent_bank">Banco De Talento</option>
-        </StyledSelect>
-        <Label htmlFor="job" active={focusedFields.job}>Cargo Desejado</Label>
+          {() => <Input id="phone" />}
+        </InputMask>
+        <Label htmlFor="phone" active={focusedFields.phone}>
+          Telefone
+        </Label>
       </InputContainer>
 
       <InputContainer>
@@ -346,38 +343,36 @@ const Candidatar = () => {
           value={gender}
           onChange={(e) => setGender(e.target.value)}
           onFocus={() => handleFocus('gender')}
-          onBlur={(e) => handleBlur('gender', e.target.value)}
-          required
+          onBlur={() => handleBlur('gender', gender)}
         >
-          <option value="male">Masculino</option>
-          <option value="female">Feminino</option>
-          <option value="other">Outro</option>
+          <option value="">Selecione o gênero</option>
+          <option value="M">Masculino</option>
+          <option value="F">Feminino</option>
+          <option value="O">Outro</option>
         </StyledSelect>
-        <Label htmlFor="gender" active={focusedFields.gender}>Gênero</Label>
+        <Label htmlFor="gender" active={focusedFields.gender}>
+          Gênero
+        </Label>
       </InputContainer>
 
       <InputContainer>
-        <Input
-          type="file"
-          id="resume"
-          accept=".pdf"
-          onChange={(e) => setResume(e.target.files[0]?.name || '')}
-          onFocus={() => handleFocus('resume')}
-          onBlur={(e) => handleBlur('resume', e.target.value)}
-        />
-        <Label htmlFor="resume" active={focusedFields.resume}>Currículo (PDF)</Label>
+        <Input type="file" id="resume" onChange={handleResumeChange} />
+        <Label htmlFor="resume" active={focusedFields.resume}>
+          Anexar Currículo
+        </Label>
       </InputContainer>
 
       <InputContainer>
         <TextArea
-          id="cover_letter"
-          placeholder=" "
-          required
+          id="coverLetter"
+          value={coverLetter}
           onChange={(e) => setCoverLetter(e.target.value)}
           onFocus={() => handleFocus('cover_letter')}
-          onBlur={(e) => handleBlur('cover_letter', e.target.value)}
+          onBlur={() => handleBlur('cover_letter', coverLetter)}
         />
-        <Label htmlFor="cover_letter" active={focusedFields.cover_letter}>Mensagem de Apresentação</Label>
+        <Label htmlFor="coverLetter" active={focusedFields.cover_letter}>
+          Carta de Apresentação
+        </Label>
       </InputContainer>
 
       <StyledButton type="submit">Enviar</StyledButton>

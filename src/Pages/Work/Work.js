@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import HeaderSite from "../../Components/Header/Index"
 import Footer from '../../Components/Footer/Footer'
 import { Link } from 'react-router-dom';
+import Empresa from "../../images/empresa.png"
 
 const Background = styled.div`
   height: 100vh;
-  background-image: url('https://ciclovivo.com.br/wp-content/uploads/2018/10/iStock-536613027-1024x683.jpg');
+  background-image: url(${Empresa});
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -23,7 +24,8 @@ const Content = styled.div`
 
 const Quote = styled.p`
   font-size: 1.5rem;
-  color: #333;
+  color: #fff;
+  text-shadow: 2px 3px 2px rgba(0,0,0,0.7);
   margin-bottom: 1.5rem;
   font-weight: bold;
 `;
@@ -31,8 +33,9 @@ const Quote = styled.p`
 const Title = styled.h1`
   font-size: 3.5rem;
   font-weight: bold;
-  color: #000;
+  color: #fff;
   margin-bottom: 2rem;
+  text-shadow: 2px 3px 2px rgba(0,0,0,0.7);
 
   @media (max-width: 768px) {
     font-size: 2.5rem;
@@ -40,17 +43,17 @@ const Title = styled.h1`
 `;
 
 const Button = styled.button`
-  background-color: #000;
-  color: #fff;
+  background-color: #fff;
+  color: #4b0082;
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
   border: none;
   cursor: pointer;
   font-size: 1.25rem;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 2px 3px 2px rgba(0,0,0,0.3);
 
   &:hover {
-    background-color: #333;
     transform: scale(1.05);
   }
 
@@ -63,7 +66,6 @@ const Button = styled.button`
 const Vagas = styled.div`
   padding: 50px 0;
   text-align: center;
-  background-color: #f8f8f8;
 `;
 
 const VagasTitle = styled.h2`
@@ -111,12 +113,9 @@ const Input = styled.input`
 `;
 
 const FilterButton = styled(Button)`
-  background-color: #4b0082;
-
-  &:hover {
-    background-color: #2c3e50;
-    
-  }
+  background-color: purple;
+  color: #fff;
+  box-shadow: 2px 3px 2px rgba(0,0,0,0.3);
 `;
 
 const ContentList = styled.div`
@@ -179,6 +178,7 @@ const ApplyButton = styled(Button)`
   margin-top: 10px;
   font-size: 15px;
   padding: 10px;
+  color: #fff;
   
 
 
@@ -218,7 +218,7 @@ const App = () => {
         <Content>
           <Quote>"O Sucesso está nos olhos daqueles que o procuram"</Quote>
           <Title>VENHA TRABALHAR CONOSCO</Title>
-          <Button onClick={scrollToVagas}>Venha Conferir</Button>
+          <Button onClick={scrollToVagas}>Participe</Button>
         </Content>
       </Background>
 
@@ -239,8 +239,8 @@ const App = () => {
 
         <ContentList>
           <JobListings>
-            <h2>Listando as vagas mais recentes</h2>
-            <p>{filteredJobs.length} vagas encontradas</p>
+            <h2>Listando as vagas mais recentes</h2><br/>
+            <p>{filteredJobs.length} vagas encontradas</p><br/>
             {filteredJobs.map((job, index) => (
               <Job key={index}>
                 <JobTitle>{job.title}</JobTitle>
