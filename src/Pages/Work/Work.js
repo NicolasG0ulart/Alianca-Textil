@@ -113,7 +113,7 @@ const Input = styled.input`
 `;
 
 const FilterButton = styled(Button)`
-  background-color: purple;
+  background-color: #0e264b;
   color: #fff;
   box-shadow: 2px 3px 2px rgba(0,0,0,0.3);
 `;
@@ -145,9 +145,10 @@ const Job = styled.div`
   margin-bottom: 30px;
   margin-right: 2.5%;
   width: 45%;
+  height: 250px;
   display: inline-block;
   vertical-align: top;
-  height: auto;
+  align-items: space-between;
   box-sizing: border-box;
   text-align: left;
 
@@ -163,7 +164,7 @@ const Job = styled.div`
 
 const JobTitle = styled.h3`
   margin-top: 0;
-  color: #4b0082;
+  color: #0e264b;
   margin-bottom: 10px;
 `;
 
@@ -191,14 +192,20 @@ const App = () => {
   const [filter, setFilter] = useState('');
 
   const jobs = [
-    { title: 'MECÂNICO DE MANUTENÇÃO', description: 'Executar serviços de manutenção preventiva e corretiva...' },
-    { title: 'AUXILIAR DE PRODUÇÃO', description: 'Auxiliar na linha de produção.' },
-    { title: 'ANALISTA DE SISTEMAS', description: 'Desenvolver e manter sistemas de informação...' },
-    { title: 'ENGENHEIRO CIVIL', description: 'Planejar, projetar e gerenciar construções e reformas...' },
-    { title: 'DESENVOLVEDOR WEB', description: 'Desenvolver e manter websites...' },
-    { title: 'GERENTE DE PROJETOS', description: 'Gerenciar projetos, coordenar equipes...' },
-    { title: 'ANALISTA FINANCEIRO', description: 'Realizar análises financeiras, elaborar relatórios...' },
-    { title: 'BANCO DE TALENTOS', description: 'Banco de Talentos' },
+    { title: 'ALIMENTADOR DA LINHA DE PRODUÇÃO', description: ' Checar ordens de serviço, identificar, separar e transportar materiais, além de conferir visualmente e repor materiais com defeitos...' },
+    { title: 'OPERADOR DE FIOS', description: '  Carrega os teares com bobinas ou carretéis, passando os fios de urdume e trama.    ' },
+    { title: 'AUXILIAR EMBALADOR', description: 'Auxiliares de embalagem atuam no controle de qualidade, garantindo que todos os produtos estão em perfeitas condições antes de serem enviados para a distribuição.' },
+    { title: 'AUXILIAR DE ESTOQUISTA', description: 'Manter o estoque organizado, etiquetando e armazenando os produtos de forma adequada para facilitar o acesso e a contagem' },
+    { title: 'AUXILIAR ENGOMADEIRA', description: 'Operar e monitorar as máquinas de engomagem, garantindo que estejam funcionando corretamente e ajustando-as conforme necessário' },
+    { title: 'OPERADOR DE EMBALAGEM', description: 'O operador manuseia máquinas de embalagem, ajustando-as conforme necessário para diferentes tipos de produtos e embalagens' },
+    { title: 'MECÂNICO', description: 'Realizar inspeções periódicas e testes para garantir que os equipamentos estejam funcionando corretamente e  Consertar e manter máquinas e equipamentos em funcionamento. ' },
+    { title: 'OPERADOR TEAR JACQUARD', description: 'Supervisionar o processo de tecelagem para garantir que a máquina esteja funcionando corretamente e que os padrões estejam sendo produzidos conforme esperado.' },
+    { title: 'AUXILIAR DE TECELÃO', description: 'Auxilia na operação e monitoramento das máquinas de tecelagem e na realização de ajustes e pequenas manutenções nas máquinas para garantir seu bom funcionamento.' },
+    { title: 'TECELÃO', description: 'Opera máquinas manuais ou automatizadas para tecer os fios e Verifica se os elásticos estão sendo produzidos corretamente, corrigindo falhas e ajustando as máquinas conforme necessário.' },
+    { title: 'INSPETOR DE TECELÃO', description: 'Acompanhar o processo de produção, desde a preparação dos elásticos até a finalização dos próprios' },
+    { title: 'CONTRAMESTRE', description: 'Garantir que a máquina esteja funcionando corretamente e realizar ajustes conforme necessário e monitorar a qualidade dos tecidos produzidos e assegurar que os padrões estejam sendo replicados com precisão.' },
+    { title: 'SETOR ADMINISTRATIVO', description: 'Dar apoio à administração de uma empresa em suas tarefas diárias podendo trabalhar em organizações dos mais variados portes e segmentos, geralmente dando suporte a mais de um setor interno' },
+    { title: 'BANCO DE TALENTO', description: 'Seleção de candidatos para abertura de novas funções na empresa.' },
   ];
 
   const filteredJobs = jobs.filter(job => job.title.toLowerCase().includes(filter.toLowerCase()));
