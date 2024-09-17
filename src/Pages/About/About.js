@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Header from "../../Components/Header/Index";
 import Footer from "../../Components/Footer/Footer"; 
-import Galerinha from "../../images/galerinha.PNG";
+import BannerAbout from "../../images/banner-about.png"
 
 const PageContainer = styled.div`
   display: flex;
@@ -138,16 +138,12 @@ function App() {
           <LeftSection>
             <h1>HISTÓRIA ALIANÇA TÊXTIL</h1>
             <p>
-              Texto aleatórioTexto aleatórioTexto aleatórioTexto aleatórioTexto aleatórioTexto aleatórioTexto aleatórioTexto aleatórioTexto aleatórioTexto aleatórioTexto aleatório
+            Empresa de fabricação de elásticos para cuecas fundada em 04/12/2017 na cidade de Pequeri em Minas Gerais, nasceu de um sonho de um grupo de pessoas com o principal motivo de suprir a demanda da indústria local.
             </p>
             <p>
-              Texto aleatórioTexto aleatórioTexto aleatórioTexto aleatórioTexto aleatórioTexto aleatórioTexto aleatórioTexto aleatórioTexto aleatórioTexto aleatórioTexto aleatório
+            eve seu início com apenas 4 funcionários e nos dias de hoje passam de 80. Tem um propósito de atender as maiores confecções do País
             </p>
-            <h2>UMA EMPRESA EM CONSTANTE EVOLUÇÃO</h2>
-            <p>
-              Texto aleatórioTexto aleatórioTexto aleatórioTexto aleatórioTexto aleatórioTexto aleatórioTexto aleatórioTexto aleatórioTexto aleatório
-            </p>
-            <ImageSection src={Galerinha} alt='Imagem de uma das matérias primas' />
+            <ImageSection src={BannerAbout} alt='Imagem de uma das matérias primas' />
           </LeftSection>
 
           <RightSection>

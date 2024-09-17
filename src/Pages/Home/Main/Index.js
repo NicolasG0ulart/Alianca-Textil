@@ -119,27 +119,27 @@ export default function Main() {
                         <div className="card">
                                 <img class="laiza" src={NY40} alt="" />
                                 <div className="text">
-                                    <h3>Las Vegas 40MM</h3>
+                                    <h3>New York 40MM</h3>
                                 </div>
                             </div>
 
                             <div className="card">
                                 <img class="laiza" src={NY35} alt="" />
                                 <div className="text">
-                                    <h3>Las Vegas 35MM</h3>
+                                    <h3>New York 35MM</h3>
                                 </div>
                             </div>
 
                             <div className="card">
                                 <img class="laiza" src={NY30} alt="" />
                                 <div className="text">
-                                    <h3>Las Vegas 30MM</h3>
+                                    <h3>New York 30MM</h3>
                                 </div>
                             </div>
                         <div className="card">
                             <img class="laiza" src={NY25} alt="" />
                             <div className="text">
-                                <h3>Las Vegas 25MM</h3>
+                                <h3>New York 25MM</h3>
                             </div>
                         </div>
                     </S.ContentCatalog>

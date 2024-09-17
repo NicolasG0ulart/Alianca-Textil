@@ -11,7 +11,7 @@ export const Footer = styled.footer`
     ul{
         display: flex;
         list-style: none;
-
+        border-bottom: red 4px;
         display: flex;
         justify-content: space-between;
         align-items: center;
