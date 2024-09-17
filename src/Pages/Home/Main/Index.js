@@ -6,6 +6,16 @@ import styled from "styled-components";
 import { FaUserTie } from "react-icons/fa";
 import Embalagem from "../../../images/embalagem.png"
 import NAPJ from "../../../images/produtos/napj.jpeg"
+import LV40 from "../../../images/produtos/lv40.jpg"
+import LV35 from "../../../images/produtos/lv35.jpg"
+import LV30 from "../../../images/produtos/lv30.jpg"
+import LV25 from "../../../images/produtos/lv25.jpg"
+
+import NY40 from "../../../images/produtos/ny40.jpg"
+import NY35 from "../../../images/produtos/ny35.jpg"
+import NY30 from "../../../images/produtos/ny30.jpg"
+import NY25 from "../../../images/produtos/ny25.jpg"
+
 
 const LinkR = styled(Link)`
         color: #0e264b;
@@ -80,62 +90,58 @@ export default function Main() {
                     <S.ContentCatalog>
                         <div className="container">
                             <div className="card">
-                                <img class="laiza" src={NAPJ} alt="" />
+                                <img class="laiza" src={LV40} alt="" />
                                 <div className="text">
                                     <h3>Las Vegas 40MM</h3>
                                 </div>
                             </div>
 
                             <div className="card">
-                                <img class="laiza" src={NAPJ} alt="" />
+                                <img class="laiza" src={LV35} alt="" />
                                 <div className="text">
                                     <h3>Las Vegas 35MM</h3>
                                 </div>
                             </div>
 
                             <div className="card">
-                                <img class="laiza" src={NAPJ} alt="" />
+                                <img class="laiza" src={LV30} alt="" />
                                 <div className="text">
                                     <h3>Las Vegas 30MM</h3>
                                 </div>
                             </div>
                         </div>
                         <div className="card">
-                            <img class="laiza" src={NAPJ} alt="" />
+                            <img class="laiza" src={LV25} alt="" />
                             <div className="text">
                                 <h3>Las Vegas 25MM</h3>
                             </div>
                         </div>
 
-                        <div className="container">
-                            <div className="card">
-                                <img class="laiza" src={NAPJ} alt="" />
+                        <div className="card">
+                                <img class="laiza" src={NY40} alt="" />
                                 <div className="text">
-                                    <h3>New York 40MM</h3>
-                                </div>
-                            </div>
-
-
-                            <div className="card">
-                                <img class="laiza" src={NAPJ} alt="" />
-                                <div className="text">
-                                    <h3>New York 35MM</h3>
+                                    <h3>Las Vegas 40MM</h3>
                                 </div>
                             </div>
 
                             <div className="card">
-                                <img class="laiza" src={NAPJ} alt="" />
+                                <img class="laiza" src={NY35} alt="" />
                                 <div className="text">
-                                    <h3>New York 30MM</h3>
-                                </div>
-                            </div>
-                            <div className="card">
-                                <img class="laiza" src={NAPJ} alt="" />
-                                <div className="text">
-                                    <h3>New York 25MM</h3>
+                                    <h3>Las Vegas 35MM</h3>
                                 </div>
                             </div>
 
+                            <div className="card">
+                                <img class="laiza" src={NY30} alt="" />
+                                <div className="text">
+                                    <h3>Las Vegas 30MM</h3>
+                                </div>
+                            </div>
+                        <div className="card">
+                            <img class="laiza" src={NY25} alt="" />
+                            <div className="text">
+                                <h3>Las Vegas 25MM</h3>
+                            </div>
                         </div>
                     </S.ContentCatalog>
                 </S.Catalog>
