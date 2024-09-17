@@ -361,7 +361,7 @@ const Candidatar = () => {
       resume: true,
       cover_letter: false
     });
-  });
+  }, [name, phone, email]);
 
   const handleFocus = (field) => {
     setFocusedFields((prev) => ({ ...prev, [field]: true }));
