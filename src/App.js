@@ -5,6 +5,7 @@ import Catalog from "./Pages/Catalog/Catalog"
 import Contact from "./Pages/Contact/Contact"
 import Apply from "./Pages/Apply/Apply"
 import Work from "./Pages/Work/Work"
+import NotFound from "./Pages/NotFound/NotFound"
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Background from "./images/background-site.png"
 
@@ -35,7 +36,7 @@ function App() {
           <Route path="/contato" element={<Contact/>} />
           <Route path="/candidatar-se" element={<Apply/>}/>
           <Route path="/trabalhe-conosco" element={<Work/>} />
-          <Route path="*" element="Página não encontrada" />
+          <Route path="/*" element={<NotFound/>} />
 
           
         </Routes>
