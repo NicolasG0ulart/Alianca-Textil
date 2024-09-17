@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { FaUserTie } from "react-icons/fa";
 import Embalagem from "../../../images/embalagem.png"
-import NAPJ from "../../../images/produtos/napj.jpeg"
 import LV40 from "../../../images/produtos/lv40.jpg"
 import LV35 from "../../../images/produtos/lv35.jpg"
 import LV30 from "../../../images/produtos/lv30.jpg"
