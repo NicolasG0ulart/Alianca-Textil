@@ -138,6 +138,7 @@ const JobListings = styled.div`
 `;
 
 const Job = styled.div`
+  position: relative;
   background-color: white;
   padding: 20px;
   border-radius: 10px;
@@ -145,10 +146,9 @@ const Job = styled.div`
   margin-bottom: 30px;
   margin-right: 2.5%;
   width: 45%;
-  height: 250px;
+  height: 270px;
   display: inline-block;
   vertical-align: top;
-  align-items: space-between;
   box-sizing: border-box;
   text-align: left;
 
@@ -175,6 +175,8 @@ const JobDescription = styled.p`
 `;
 
 const ApplyButton = styled(Button)`
+  position: absolute;
+  bottom: 30px;
   background-color: #2c3e50;
   margin-top: 10px;
   font-size: 15px;

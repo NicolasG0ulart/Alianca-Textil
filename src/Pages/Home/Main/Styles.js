@@ -139,7 +139,9 @@ export const ContentEnterprise = styled.div`
 export const Text = styled.div`
     width: 40vw;
     padding-top: 30px;
-
+    h1{
+      font-size: 2.5rem;
+    }
     p{
         font-size: 1.2rem;
         font-weight: 100;
@@ -157,8 +159,10 @@ export const Catalog = styled.div`
   text-align: center;
   padding: 40px 20px;
 
-  h1 {
-    font-size: 32px;
+    h1{
+      font-size: 2.5rem;
+      color: #0b337a;
+    }
     margin-bottom: 20px;
   }
 `;

@@ -3,7 +3,6 @@ import * as S from "./Styles"
 import Footer from "../../../Components/Footer/Footer"
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import lycra from "../../../images/lycra.png"
 import { FaUserTie } from "react-icons/fa";
 import Embalagem from "../../../images/embalagem.png"
 import NAPJ from "../../../images/produtos/napj.jpeg"
@@ -71,10 +70,6 @@ export default function Main() {
 
                         <div>
                             <img class="laiza" src={Embalagem} alt="Funcionária embalando caixa" />
-                        </div>
-
-                        <div>
-                            <img class="laiza" src={lycra} alt="Matéria-prima Lycra" />
                         </div>
                     </S.ContentEnterprise>
                 </S.Enterprise>

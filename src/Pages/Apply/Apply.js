@@ -63,7 +63,6 @@ const CloseButton = styled.button`
   }
 `;
 
-
 const StyledForm = styled.form`
   max-width: 100%;
   width: 90%;
@@ -176,7 +175,7 @@ const StyledButton = styled.button`
   width: 100%;
   max-width: 300px;
   height: 50px;
-  background: ${(props) => (props.loading ? '#B0B0B0' : '#0033A0')}; 
+  background: ${((props) => (props.loading ? '#B0B0B0' : '#0033A0'))}; 
   color: #FFFFFF;
   border-radius: 25px;
   border: none;
@@ -188,12 +187,12 @@ const StyledButton = styled.button`
   transition: background 0.4s;
   margin: 20px auto;
   box-sizing: border-box;
+  position: relative;
 
   &:hover {
-    background: ${(props) => (props.loading ? '#B0B0B0' : '#00A859')}; 
+    background: #00A859;
   }
 `;
-
 const LogoContainer = styled.div`
   text-align: center;
   margin-bottom: 20px;
@@ -285,6 +284,9 @@ const Candidatar = () => {
         console.error('Error sending email:', error);
         setLoading(false);
         setIsErrorModalOpen(true);
+      })
+      .finally(() => {
+        setLoading(false); // Desativa o carregamento após o envio
       });
   };
 
@@ -345,147 +347,138 @@ const Candidatar = () => {
   };
 
   const handleBlur = (field, value) => {
-    setFocusedFields((prev) => ({ ...prev, [field]: !!value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d\d$/;
-    if (!dateRegex.test(date)) {
-      alert('Data deve estar no formato dd/mm/aaaa.');
-      return;
+    if (!value) {
+      setFocusedFields((prev) => ({ ...prev, [field]: false }));
     }
-
-    sendEmail(e); 
   };
 
   return (
     <>
-  <StyledForm onSubmit={handleSubmit}>
+  <StyledForm onSubmit={(e) => {
+      setLoading(true); // Ativa o carregamento ao enviar
+      sendEmail(e);
+    }}>
       <LogoContainer>
-        <LogoImage src={Logo} alt="Company Logo" />
+        <LogoImage src={Logo} alt="logo" />
       </LogoContainer>
-      <h2>Candidatar-se para: {job}</h2>
 
-        <InputContainer>
-          <Input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            onFocus={() => handleFocus('name')}
-            onBlur={(e) => handleBlur('name', e.target.value)}
-            required
-          />
-          <Label active={focusedFields.name || name}>Nome Completo</Label>
-        </InputContainer>
+      <h2>Candidatar-se à vaga de {job}</h2>
 
-        <InputContainer>
-          <InputMask
-            mask="99/99/9999"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            onFocus={() => handleFocus('date')}
-            onBlur={(e) => handleBlur('date', e.target.value)}
-          >
-            {() => (
-              <Input placeholder="Data de Nascimento (DD/MM/AAAA)" />
-            )}
-          </InputMask>
-          <Label active={focusedFields.date || date}>Data de Nascimento</Label>
-        </InputContainer>
+      <InputContainer>
+        <Input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          onFocus={() => handleFocus('name')}
+          onBlur={() => handleBlur('name', name)}
+          required
+        />
+        <Label active={focusedFields.name}>Nome completo</Label>
+      </InputContainer>
 
-        <InputContainer>
-          <Input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            onFocus={() => handleFocus('email')}
-            onBlur={(e) => handleBlur('email', e.target.value)}
-            required
-          />
-          <Label active={focusedFields.email || email}>E-mail</Label>
-        </InputContainer>    
+      <InputContainer>
+        <InputMask
+          mask="(99) 99999-9999"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          onFocus={() => handleFocus('phone')}
+          onBlur={() => handleBlur('phone', phone)}
+          required
+        >
+          {() => <Input type="text" required />}
+        </InputMask>
+        <Label active={focusedFields.phone}>Telefone</Label>
+      </InputContainer>
 
-        <InputContainer>
-          <InputMask
-            mask="(99) 99999-9999"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            onFocus={() => handleFocus('phone')}
-            onBlur={(e) => handleBlur('phone', e.target.value)}
-          >
-            {() => (
-              <Input placeholder="Telefone" />
-            )}
-          </InputMask>
-          <Label active={focusedFields.phone || phone}>Telefone</Label>
-        </InputContainer>
+      <InputContainer>
+        <Input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          onFocus={() => handleFocus('email')}
+          onBlur={() => handleBlur('email', email)}
+          required
+        />
+        <Label active={focusedFields.email}>E-mail</Label>
+      </InputContainer>
 
-        
+      <InputContainer>
+        <Input
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          onFocus={() => handleFocus('date')}
+          onBlur={() => handleBlur('date', date)}
+          required
+        />
+        <Label active={focusedFields.date}>Data de nascimento</Label>
+      </InputContainer>
 
-        <InputContainer>
-          <StyledSelect value={gender} onChange={(e) => setGender(e.target.value)} required>
-            <option value="">Selecione o Gênero</option>
-            <option value="Masculino">Masculino</option>
-            <option value="Feminino">Feminino</option>
-            <option value="Outro">Outro</option>
-            <option value="Prefiro não informar">Prefiro não informar</option>
-          </StyledSelect>
-          <Label active>Gênero</Label>
-        </InputContainer>
+      <InputContainer>
+        <StyledSelect
+          value={gender}
+          onChange={(e) => setGender(e.target.value)}
+          onFocus={() => handleFocus('gender')}
+          onBlur={() => handleBlur('gender', gender)}
+          required
+        >
+          <option value="">Selecionar</option>
+          <option value="masculino">Masculino</option>
+          <option value="feminino">Feminino</option>
+          <option value="nao informar">Prefiro não informar</option>
+        </StyledSelect>
+        <Label active={focusedFields.gender}>Gênero</Label>
+      </InputContainer>
 
-       
+      <InputContainer>
+        <Input
+          type="file"
+          onChange={handleResumeChange}
+          onFocus={() => handleFocus('resume')}
+          onBlur={() => handleBlur('resume', resumeFile)}
+          required
+        />
+        <Label active={focusedFields.resume}>Anexar currículo</Label>
+      </InputContainer>
 
-        <InputContainer>
-          <Input
-            type="file"
-            accept=".pdf,.doc,.docx"
-            onChange={handleResumeChange}
-            required
-          />
-          <Label active>Currículo</Label>
-        </InputContainer>
+      <InputContainer>
+        <TextArea
+          value={coverLetter}
+          onChange={(e) => setCoverLetter(e.target.value)}
+          onFocus={() => handleFocus('cover_letter')}
+          onBlur={() => handleBlur('cover_letter', coverLetter)}
+        />
+        <Label active={focusedFields.cover_letter}>Carta de apresentação (opcional)</Label>
+      </InputContainer>
 
-        <InputContainer>
-          <TextArea
-            value={coverLetter}
-            onChange={(e) => setCoverLetter(e.target.value)}
-            placeholder="Carta de Apresentação"
-            onFocus={() => handleFocus('cover_letter')}
-            onBlur={(e) => handleBlur('cover_letter', e.target.value)}
-          />
-          <Label active={focusedFields.cover_letter || coverLetter}>Carta de Apresentação (Opcional)</Label>
-        </InputContainer>
+      <StyledButton type="submit" loading={loading} disabled={loading}>
+        {loading ? <LoadingSpinner /> : 'Enviar'}
+      </StyledButton>
+    </StyledForm>
 
-        <StyledButton type="submit" loading={loading} disabled={loading}>
-          {loading ? <LoadingSpinner /> : 'Enviar'}
-        </StyledButton>
-      </StyledForm>
-   
-      <Modal
+    <Modal
         isOpen={isModalOpen}
         onRequestClose={handleCloseModal}
         style={customModalStyles}
-        contentLabel="Success Modal"
+        contentLabel='Sucess Modal'
       >
+      
+      <SuccessIcon/>
+      <h2>Currículo enviado com sucesso!</h2>
+      <CloseButton onClick={handleCloseModal}>Fechar</CloseButton>
+    </Modal>
 
-      <SuccessIcon />
-        <h2>Currículo enviado com sucesso!</h2>
-        <CloseButton onClick={handleCloseModal}>Fechar</CloseButton>
-      </Modal>
-
-      <Modal
+    <Modal
       isOpen={isErrorModalOpen}
-      onRequestClose={() => setIsErrorModalOpen(false)}
-       style={errorModalStyles}
-      contentLabel="Error Modal"
-      >
-  <FaTimesCircle style={{ color: '#721c24', fontSize: '4rem', marginBottom: '20px' }} />
-  <h2>Currículo não enviado</h2>
-  <CloseButton onClick={() => setIsErrorModalOpen(false)}>Tentar novamente</CloseButton>
-</Modal>
-    </>
+      onRequestClose={()=> setIsErrorModalOpen(false)}
+      style={errorModalStyles}
+      contentLabel='Error Modal'
+    >
+    <FaTimesCircle style={{color: '#721c24', fontSize: '4rem', marginBottom: '20px'}}/>
+    <h2>Currículo não enviado</h2>
+    <CloseButton onClick={()=> setIsErrorModalOpen(false)}>Tentar novamente</CloseButton>
+    </Modal>
+     </>
   );
 };
-
 export default Candidatar;
