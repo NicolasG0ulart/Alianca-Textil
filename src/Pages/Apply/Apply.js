@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import InputMask from 'react-input-mask';
 import Logo from "../../images/logo.png";
 import emailjs from '@emailjs/browser';
@@ -7,7 +7,17 @@ import { storage } from './firebase.js';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"; 
 import { v4 as uuidv4 } from 'uuid'; 
 
+// Animação do spinner (carregamento)
+const spin = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
 
+// Estilos do formulário
 const StyledForm = styled.form`
   max-width: 100%;
   width: 90%;
@@ -120,11 +130,11 @@ const StyledButton = styled.button`
   width: 100%;
   max-width: 300px;
   height: 50px;
-  background: #0033A0;
+  background: ${(props) => (props.loading ? '#ddd' : '#0033A0')};
   color: #FFFFFF;
   border-radius: 25px;
   border: none;
-  cursor: pointer;
+  cursor: ${(props) => (props.loading ? 'not-allowed' : 'pointer')};
   font-size: 16px;
   display: flex;
   align-items: center;
@@ -132,10 +142,21 @@ const StyledButton = styled.button`
   transition: background 0.4s;
   margin: 20px auto;
   box-sizing: border-box;
+  position: relative;
 
   &:hover {
-    background: #00A859;
+    background: ${(props) => (props.loading ? '#ddd' : '#00A859')};
   }
+`;
+
+const Spinner = styled.div`
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-left-color: #FFFFFF;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: ${spin} 1s linear infinite;
+  position: absolute;
 `;
 
 const LogoContainer = styled.div`
@@ -161,6 +182,7 @@ const Candidatar = () => {
   const [resumeFile, setResumeFile] = useState(null); 
   const [coverLetter, setCoverLetter] = useState('');
   const [focusedFields, setFocusedFields] = useState({});
+  const [loading, setLoading] = useState(false); // Estado de carregamento
 
   const handleResumeChange = (e) => {
     setResumeFile(e.target.files[0]); 
@@ -199,6 +221,9 @@ const Candidatar = () => {
       .catch(error => {
         console.error('Error sending email:', error);
         alert('Erro ao enviar o email.');
+      })
+      .finally(() => {
+        setLoading(false); // Desativa o carregamento após o envio
       });
   };
 
@@ -255,71 +280,32 @@ const Candidatar = () => {
   };
 
   const handleBlur = (field, value) => {
-    setFocusedFields((prev) => ({ ...prev, [field]: !!value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log('Submitting form with data:', { name, email, date, phone, job, gender, resumeFile, coverLetter });
-
-    const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d\d$/;
-    if (!dateRegex.test(date)) {
-      alert('Data deve estar no formato dd/mm/aaaa.');
-      return;
+    if (!value) {
+      setFocusedFields((prev) => ({ ...prev, [field]: false }));
     }
-
-    sendEmail(e); 
   };
 
   return (
-    <StyledForm onSubmit={handleSubmit}>
+    <StyledForm onSubmit={(e) => {
+      setLoading(true); // Ativa o carregamento ao enviar
+      sendEmail(e);
+    }}>
       <LogoContainer>
-        <LogoImage src={Logo} alt="Company Logo" />
+        <LogoImage src={Logo} alt="logo" />
       </LogoContainer>
-      <h2>Candidatar-se para: {job}</h2>
+
+      <h2>Candidatar-se à vaga de {job}</h2>
 
       <InputContainer>
         <Input
           type="text"
-          id="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           onFocus={() => handleFocus('name')}
           onBlur={() => handleBlur('name', name)}
+          required
         />
-        <Label htmlFor="name" active={focusedFields.name}>
-          Nome Completo
-        </Label>
-      </InputContainer>
-
-      <InputContainer>
-        <InputMask
-          mask="99/99/9999"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          onFocus={() => handleFocus('date')}
-          onBlur={() => handleBlur('date', date)}
-        >
-          {() => <Input id="date" />}
-        </InputMask>
-        <Label htmlFor="date" active={focusedFields.date}>
-          Data de Nascimento
-        </Label>
-      </InputContainer>
-
-      <InputContainer>
-        <Input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          onFocus={() => handleFocus('email')}
-          onBlur={() => handleBlur('email', email)}
-        />
-        <Label htmlFor="email" active={focusedFields.email}>
-          Email
-        </Label>
+        <Label active={focusedFields.name}>Nome completo</Label>
       </InputContainer>
 
       <InputContainer>
@@ -329,53 +315,77 @@ const Candidatar = () => {
           onChange={(e) => setPhone(e.target.value)}
           onFocus={() => handleFocus('phone')}
           onBlur={() => handleBlur('phone', phone)}
+          required
         >
-          {() => <Input id="phone" />}
+          {() => <Input type="text" required />}
         </InputMask>
-        <Label htmlFor="phone" active={focusedFields.phone}>
-          Telefone
-        </Label>
+        <Label active={focusedFields.phone}>Telefone</Label>
+      </InputContainer>
+
+      <InputContainer>
+        <Input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          onFocus={() => handleFocus('email')}
+          onBlur={() => handleBlur('email', email)}
+          required
+        />
+        <Label active={focusedFields.email}>E-mail</Label>
+      </InputContainer>
+
+      <InputContainer>
+        <Input
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          onFocus={() => handleFocus('date')}
+          onBlur={() => handleBlur('date', date)}
+          required
+        />
+        <Label active={focusedFields.date}>Data de nascimento</Label>
       </InputContainer>
 
       <InputContainer>
         <StyledSelect
-          id="gender"
           value={gender}
           onChange={(e) => setGender(e.target.value)}
           onFocus={() => handleFocus('gender')}
           onBlur={() => handleBlur('gender', gender)}
+          required
         >
-          <option value="">Selecione o gênero</option>
-          <option value="M">Masculino</option>
-          <option value="F">Feminino</option>
-          <option value="O">Outro</option>
+          <option value="">Selecionar</option>
+          <option value="masculino">Masculino</option>
+          <option value="feminino">Feminino</option>
+          <option value="nao informar">Prefiro não informar</option>
         </StyledSelect>
-        <Label htmlFor="gender" active={focusedFields.gender}>
-          Gênero
-        </Label>
+        <Label active={focusedFields.gender}>Gênero</Label>
       </InputContainer>
 
       <InputContainer>
-        <Input type="file" id="resume" onChange={handleResumeChange} />
-        <Label htmlFor="resume" active={focusedFields.resume}>
-          Anexar Currículo
-        </Label>
+        <Input
+          type="file"
+          onChange={handleResumeChange}
+          onFocus={() => handleFocus('resume')}
+          onBlur={() => handleBlur('resume', resumeFile)}
+          required
+        />
+        <Label active={focusedFields.resume}>Anexar currículo</Label>
       </InputContainer>
 
       <InputContainer>
         <TextArea
-          id="coverLetter"
           value={coverLetter}
           onChange={(e) => setCoverLetter(e.target.value)}
           onFocus={() => handleFocus('cover_letter')}
           onBlur={() => handleBlur('cover_letter', coverLetter)}
         />
-        <Label htmlFor="coverLetter" active={focusedFields.cover_letter}>
-          Carta de Apresentação
-        </Label>
+        <Label active={focusedFields.cover_letter}>Carta de apresentação (opcional)</Label>
       </InputContainer>
 
-      <StyledButton type="submit">Enviar</StyledButton>
+      <StyledButton type="submit" loading={loading}>
+        {loading ? <Spinner /> : 'Enviar'}
+      </StyledButton>
     </StyledForm>
   );
 };
