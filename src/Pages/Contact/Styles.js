@@ -107,9 +107,14 @@ export const Contato = styled.div`
             font-family: "Paytone One", sans-serif;
             font-size: 1rem;
             color: ghostwhite;
+            transition: 0.4s;
             @media(max-width: 1024px){
                 width: 100%;
             }
+                &:hover{
+                    background-color: #0b337a;
+                    cursor: pointer;
+                }
         }
     }
 
