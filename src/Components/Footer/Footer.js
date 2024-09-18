@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import footer from '../../images/ALIANÇAFOOTER.PNG';
+import footer from '../../images/logo.png';
+import logo from '../../images/ndb_1.png';
 
 const Container = styled.div`
   font-family: Arial, sans-serif;
-  background-color: #2A2A8A;
+  background-color: #FFF;
   color: white;
   margin: 0;
   padding: 0;
@@ -21,6 +22,7 @@ const ContentContainer = styled.div`
 
 const Left = styled.div`
   max-width: 300px;
+  color:#0e264b;
 `;
 
 const Logo = styled.img`
@@ -30,13 +32,16 @@ const Logo = styled.img`
 `;
 
 const Phone = styled.p`
-  font-size: 24px;
+  font-size: 26px;  /* Aumenta o tamanho da fonte */
   font-weight: bold;
-  margin: 10px 0; 
+  margin: 20px 0; 
+  color:#0e264b;
 `;
 
 const Address = styled.p`
-  margin-top: 10px; 
+  margin-top: 29px; 
+  color:#0e264b;
+  font-size: 18px; /* Aumenta o tamanho da fonte */
 `;
 
 const Center = styled.div`
@@ -47,37 +52,57 @@ const Center = styled.div`
 
 const SectionTitle = styled.h3`
   margin-bottom: 30px;
+  color:#0e264b;
+  font-size: 24px; /* Aumenta o tamanho da fonte */
 `;
 
 const Link = styled.a`
-  color: white;
+  color:#0e264b;
   text-decoration: none;
   margin-bottom: 5px;
+  font-size: 18px; /* Aumenta o tamanho da fonte */
 `;
-
-
 
 const Right = styled.div`
   display: flex;
   flex-direction: column;
+  color:#0e264b;
 `;
 
 const Social = styled.div`
   display: flex;
   flex-direction: column;
+  color:#0e264b;
 `;
 
 const Footer = styled.div`
   text-align: center;
-  padding: 20px;
-  background-color: #1A1A6A;
+  padding: 30px 20px;
+  background-color: #0e264b;
+  color: white;
+  height: 300px;  /* Define uma altura fixa para o rodapé */
+  overflow: hidden;  /* Impede que o conteúdo interno aumente o rodapé */
 `;
 
 const FooterLine = styled.div`
   border-top: 1px solid white;
-  padding-top: 10px;
-  margin: 10px 0;
+  padding-top: 15px;
+  margin: 20px 0;
 `;
+
+const FooterText = styled.p`
+  margin: 5px 0;
+  font-size: 18px;  /* Aumenta o tamanho da fonte */
+`;
+
+const FooterLogo = styled.img`
+  margin-top: 20px;
+  height: 150px;  /* Tamanho da logo */
+  width: auto;
+  max-height: 100%;  /* Garante que a logo não ultrapasse o rodapé */
+`;
+
+
 
 function App() {
   return (
@@ -87,7 +112,7 @@ function App() {
           <Logo src={footer} alt="AliançaTextil Logo" />
           <p style={{ margin: '20px 0' }}>ATENDIMENTO AO CLIENTE</p>
           <Phone>
-            <FontAwesomeIcon icon={faPhoneAlt} style={{ color: 'white' }} /> (44) 3233-3067
+            <FontAwesomeIcon icon={faPhoneAlt} style={{ color: '#0e264b' }} /> (44) 3233-3067
           </Phone>
           <Address>
             Professora Nair Temponi, 56, Nova Pequeri, Pequeri-MG, CEP: 36610000
@@ -97,44 +122,40 @@ function App() {
           <SectionTitle>CONTEÚDO</SectionTitle>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
-              
               <Link href="#">Sobre a empresa</Link>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
-              
-              <Link href="#">Tranalhe conosco</Link>
+              <Link href="#">Trabalhe conosco</Link>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
-             
               <Link href="#">Catálogo virtual</Link>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
-              
               <Link href="#">Contatos</Link>
             </div>
           </div>
-        </Center>o
+        </Center>
         <Right>
-        <SectionTitle>PRODUTOS</SectionTitle>
+          <SectionTitle>PRODUTOS</SectionTitle>
           <Link href="#">Elástico de cueca</Link>
         </Right>
         <Social>
-        <SectionTitle>REDES SOCIAIS</SectionTitle>
+          <SectionTitle>REDES SOCIAIS</SectionTitle>
           <div style={{ display: 'flex', gap: '10px' }}>
             <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faInstagram} style={{ fontSize: '24px', color: 'white' }} />
+              <FontAwesomeIcon icon={faInstagram} style={{ fontSize: '24px', color: '#0e264b' }} />
             </a>
             <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faLinkedin} style={{ fontSize: '24px', color: 'white' }} />
+              <FontAwesomeIcon icon={faLinkedin} style={{ fontSize: '24px', color: '#0e264b' }} />
             </a>
           </div>
         </Social>
       </ContentContainer>
       <Footer>
-        <p style={{ margin: '5px 0' }}>Desenvolvido em: 2020</p>
+        <FooterText>Desenvolvido em: 2024</FooterText>
         <FooterLine>
-          <p style={{ margin: '5px 0' }}>Desenvolvido por</p>
-          <img alt="NDB logo" height="50" src="" width="100" style={{ marginTop: '5px' }} />
+          <FooterText>Desenvolvido por</FooterText>
+          <FooterLogo src={logo} alt="NDB Logo" />
         </FooterLine>
       </Footer>
     </Container>
