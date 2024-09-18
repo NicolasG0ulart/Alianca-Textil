@@ -18,7 +18,7 @@ export default function Contact() {
     function enviarMensagem(event) {
         event.preventDefault(); // Previne o comportamento padrão do formulário
         const wpp = "553299431256";
-        const url = `https://wa.me/${wpp}?text=Olá, me chamo%20${encodeURIComponent(nome)}%2C%20${encodeURIComponent(mensagem)}`;
+        const url = `https://wa.me/${wpp}?text=Meu nome:%20${encodeURIComponent(nome)}%0AMensagem:%20${encodeURIComponent(mensagem)}`;
         window.open(url, '_blank');
     }
 
@@ -36,9 +36,9 @@ export default function Contact() {
                         <br />
                         <h3>Endereço</h3>
                         <p>
-                            PEQUERI/MG - 36610-000<br />
+                            Professora Nair Temponi - n° 56<br />
                             Nova Pequeri<br />
-                            Professora Nair Temponi - n° 56
+                            PEQUERI/MG - 36610-000
                         </p>
                     </section>
                     <section>
@@ -60,7 +60,7 @@ export default function Contact() {
                             <p>Comercial: (32) 99943-1256</p>
                             <p>Financeiro: (32) 99956-5091</p>
                             <p>Departamento Pessoal: (32) 99880-7858</p>
-                            <p>Representante: Giovani</p>
+                            <p>Representante: (32) 99989-0220</p>
                         </div>
                         <div>
                             <h3>Horários</h3>

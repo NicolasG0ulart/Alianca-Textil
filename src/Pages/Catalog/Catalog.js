@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../../Components/Header/Index";
 import Footer from "../../Components/Footer/Footer"
 import * as S from "./Styles"
-import { useState } from "react";
+import { useState, useEffect} from "react";
 
 
 export default function Catalog() {
@@ -22,6 +22,9 @@ export default function Catalog() {
     const [font, setFont] = useState("Paytone One")
     const [fontSize, setFontSize] = useState(40)
     const [letterSpacing, setletterSpacing] = useState(5)
+    const [maxLength, setMaxLength] = useState(20);
+    const [maxSpacing, setmaxSpacing] = useState(18);
+    const [maxFont, setmaxFont] = useState(60);
 
     const [colors] = useState([
         { name: 'Amazonas', color: '#20331B', type: "escuro" },
@@ -92,6 +95,22 @@ export default function Catalog() {
     const handleFontSpacing = (event) => {
         setletterSpacing(event.target.value)
     }
+    useEffect(() => {
+        const updateMaxLength = () => {
+          if (window.innerWidth <= 768) {
+            setmaxSpacing(10)
+            setMaxLength(100);
+            setmaxFont(40);
+          } else {
+            setMaxLength(20);
+            setMaxLength(10);
+            setmaxFont(40);
+          }
+        };
+        updateMaxLength();
+        window.addEventListener('resize', updateMaxLength);
+        return () => window.removeEventListener('resize', updateMaxLength);
+      }, []);
 
 
     return (
@@ -110,7 +129,7 @@ export default function Catalog() {
 
                 <S.Edit>
                     <S.Left>
-                        <S.YourArt  maxLength={20} onChange={handleChange} value={art} type="text" placeholder="Digite sua arte aqui" />
+                        <S.YourArt  maxLength={maxLength} onChange={handleChange} value={art} type="text" placeholder="Digite sua arte aqui" />
                         <S.Select>
                             <S.ButtonSelect
                                 bgColor={bgColor}
@@ -144,9 +163,9 @@ export default function Catalog() {
                         </select>
                         <div>
                             <label>Tamanho da fonte</label>
-                            <input value={fontSize} onChange={handleFontSize} type="range" min="20" max="60" />
+                            <input value={fontSize} onChange={handleFontSize} type="range" min="20" max={maxFont} />
                             <label>Espaçamento</label>
-                            <input value={letterSpacing} onChange={handleFontSpacing} type="range" min="1" max="50" />
+                            <input value={letterSpacing} onChange={handleFontSpacing} type="range" min="1" max={maxSpacing} />
                         </div>
                     </S.Right>
                 </S.Edit>

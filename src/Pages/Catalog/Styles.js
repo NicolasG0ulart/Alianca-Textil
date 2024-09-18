@@ -2,6 +2,7 @@ import styled from "styled-components"
 import Mescla from "../../images/mescla.PNG"
 
 export const Fita = styled.div`
+    overflow: hidden;
     position: relative;
     margin-top: 30px;
     background-color: ${(props) => props.color};
@@ -97,6 +98,7 @@ export const FitaTwo = styled.div`
     }
 `;
 export const FitaThree = styled.div`
+    overflow: hidden;
     margin-top: 50px;
     position: relative;
     background-color: ${(props) => props.color};
