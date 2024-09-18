@@ -141,7 +141,7 @@ function App() {
             Empresa de fabricação de elásticos para cuecas fundada em 04/12/2017 na cidade de Pequeri em Minas Gerais, nasceu de um sonho de um grupo de pessoas com o principal motivo de suprir a demanda da indústria local.
             </p>
             <p>
-            eve seu início com apenas 4 funcionários e nos dias de hoje passam de 80. Tem um propósito de atender as maiores confecções do País
+            Teve seu início com apenas 4 funcionários e nos dias de hoje passam de 80. Tem um propósito de atender as maiores confecções do País
             </p>
             <ImageSection src={BannerAbout} alt='Imagem de uma das matérias primas' />
           </LeftSection>
