@@ -20,6 +20,8 @@ const Content = styled.div`
   text-align: center;
   color: #000;
   padding: 20px;
+  margin:20px;
+  
 `;
 
 const Quote = styled.p`
@@ -28,6 +30,7 @@ const Quote = styled.p`
   text-shadow: 2px 3px 2px rgba(0,0,0,0.7);
   margin-bottom: 1.5rem;
   font-weight: bold;
+  
 `;
 
 const Title = styled.h1`
@@ -60,6 +63,10 @@ const Button = styled.button`
   @media (max-width: 768px) {
     font-size: 1rem;
     padding: 0.5rem 1rem;
+    margin-bottom:135px;
+
+ 
+  
   }
 `;
 
@@ -122,6 +129,7 @@ const ContentList = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+
 `;
 
 const JobListings = styled.div`
@@ -172,13 +180,19 @@ const JobDescription = styled.p`
   font-weight: normal;
   color: #333;
   margin-bottom: 15px;
+  margin-top:25px;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    margin-top: 70px;
+  }
 `;
 
 const ApplyButton = styled(Button)`
   position: absolute;
   bottom: 30px;
   background-color: #2c3e50;
-  margin-top: 10px;
+  margin-top: 20px;
   font-size: 15px;
   padding: 10px;
   color: #fff;
@@ -194,19 +208,19 @@ const App = () => {
   const [filter, setFilter] = useState('');
 
   const jobs = [
-    { title: 'ALIMENTADOR DA LINHA DE PRODUÇÃO', description: ' Checar ordens de serviço, identificar, separar e transportar materiais, além de conferir visualmente e repor materiais com defeitos...' },
+    { title: 'AUXILIAR DE PRODUÇÃO', description: ' Checar ordens de serviço, identificar, separar e transportar materiais, além de conferir visualmente e repor materiais com defeitos.' },
     { title: 'OPERADOR DE FIOS', description: '  Carrega os teares com bobinas ou carretéis, passando os fios de urdume e trama.    ' },
-    { title: 'AUXILIAR EMBALADOR', description: 'Auxiliares de embalagem atuam no controle de qualidade, garantindo que todos os produtos estão em perfeitas condições antes de serem enviados para a distribuição.' },
+    { title: 'AUXILIAR EMBALADOR', description: 'Auxiliares de embalagem atuam no controle de qualidade, garantindo que todos os produtos estão em perfeitas condições antes de serem enviados.' },
     { title: 'AUXILIAR DE ESTOQUISTA', description: 'Manter o estoque organizado, etiquetando e armazenando os produtos de forma adequada para facilitar o acesso e a contagem' },
     { title: 'AUXILIAR ENGOMADEIRA', description: 'Operar e monitorar as máquinas de engomagem, garantindo que estejam funcionando corretamente e ajustando-as conforme necessário' },
-    { title: 'OPERADOR DE EMBALAGEM', description: 'O operador manuseia máquinas de embalagem, ajustando-as conforme necessário para diferentes tipos de produtos e embalagens' },
-    { title: 'MECÂNICO', description: 'Realizar inspeções periódicas e testes para garantir que os equipamentos estejam funcionando corretamente e  Consertar e manter máquinas e equipamentos em funcionamento. ' },
-    { title: 'OPERADOR TEAR JACQUARD', description: 'Supervisionar o processo de tecelagem para garantir que a máquina esteja funcionando corretamente e que os padrões estejam sendo produzidos conforme esperado.' },
-    { title: 'AUXILIAR DE TECELÃO', description: 'Auxilia na operação e monitoramento das máquinas de tecelagem e na realização de ajustes e pequenas manutenções nas máquinas para garantir seu bom funcionamento.' },
-    { title: 'TECELÃO', description: 'Opera máquinas manuais ou automatizadas para tecer os fios e Verifica se os elásticos estão sendo produzidos corretamente, corrigindo falhas e ajustando as máquinas conforme necessário.' },
+    { title: 'OPERADOR EMBALAGEM', description: 'O operador manuseia máquinas de embalagem, ajustando-as conforme necessário para diferentes tipos de produtos e embalagens' },
+    { title: 'MECÂNICO', description: 'Realizar inspeções periódicas e testes para garantir que os equipamentos estejam funcionando corretamente. ' },
+    { title: 'OPERADOR JACQUARD', description: 'Supervisionar o processo de tecelagem para garantir que a máquina esteja funcionando corretamente e que os padrões estejam sendo produzidos.' },
+    { title: 'AUXILIAR DE TECELÃO', description: 'Auxilia na operação e monitoramento das máquinas de tecelagem e na realização de ajustes e pequenas manutenções nas máquinas.' },
+    { title: 'TECELÃO', description: 'Opera máquinas manuais ou automatizadas para tecer os fios e Verifica se os elásticos estão sendo produzidos corretamente, corrigindo falhas se necessário.' },
     { title: 'INSPETOR DE TECELÃO', description: 'Acompanhar o processo de produção, desde a preparação dos elásticos até a finalização dos próprios' },
-    { title: 'CONTRAMESTRE', description: 'Garantir que a máquina esteja funcionando corretamente e realizar ajustes conforme necessário e monitorar a qualidade dos tecidos produzidos e assegurar que os padrões estejam sendo replicados com precisão.' },
-    { title: 'SETOR ADMINISTRATIVO', description: 'Dar apoio à administração de uma empresa em suas tarefas diárias podendo trabalhar em organizações dos mais variados portes e segmentos, geralmente dando suporte a mais de um setor interno' },
+    { title: 'CONTRAMESTRE', description: 'Garantir que a máquina esteja funcionando corretamente e realizar ajustes conforme necessário e monitorar a qualidade dos elásticos.' },
+    { title: 'SETOR ADMINISTRATIVO', description: 'Dar apoio à administração de uma empresa em suas tarefas diárias podendo trabalhar em organizações dos mais variados portes e segmentos.' },
     { title: 'BANCO DE TALENTO', description: 'Seleção de candidatos para abertura de novas funções na empresa.' },
   ];
 

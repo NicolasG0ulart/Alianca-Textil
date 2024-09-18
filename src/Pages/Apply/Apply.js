@@ -298,8 +298,8 @@ const Candidatar = () => {
   useEffect(() => {
     const selectedJob = localStorage.getItem('selectedJob');
     switch (selectedJob) {
-      case 'ALIMENTADOR DA LINHA DE PRODUÇÃO':
-        setJob('ALIMENTADOR DA LINHA DE PRODUÇÃO');
+      case 'AUXILIAR DE PRODUÇÃO':
+        setJob('AUXILIAR DE PRODUÇÃO');
         break;
       case 'OPERADOR DE FIOS':
         setJob('OPERADOR DE FIOS');
@@ -313,14 +313,14 @@ const Candidatar = () => {
       case 'AUXILIAR ENGOMADEIRA':
         setJob('AUXILIAR ENGOMADEIRA');
         break;
-      case 'OPERADOR DE EMBALAGEM':
-        setJob('OPERADOR DE EMBALAGEM');
+      case 'OPERADOR EMBALAGEM':
+        setJob('OPERADOR EMBALAGEM');
         break;
       case 'MECÂNICO':
         setJob('MECÂNICO');
         break;
-      case 'OPERADOR TEAR JACQUARD':
-        setJob('OPERADOR TEAR JACQUARD');
+      case 'OPERADOR JACQUARD':
+        setJob('OPERADOR JACQUARD');
         break;
       case 'AUXILIAR DE TECELÃO':
         setJob('AUXILIAR DE TECELÃO');
