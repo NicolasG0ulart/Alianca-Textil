@@ -7,21 +7,25 @@ import footer from '../../images/logo.png';
 import logo from '../../images/ndb_1.png';
 
 const Container = styled.div`
+  font-family: Arial, sans-serif;
   background-color: #FFF;
   color: white;
   margin: 0;
   padding: 0;
+ 
 `;
 
 const ContentContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 20px 50px;
+  font-weight: bold;
+  font-size:20px;  
 `;
 
 const Left = styled.div`
   max-width: 300px;
-  color:#0e264b;
+  color: #0e264b;
 `;
 
 const Logo = styled.img`
@@ -34,44 +38,47 @@ const Phone = styled.p`
   font-size: 26px;  /* Aumenta o tamanho da fonte */
   font-weight: bold;
   margin: 20px 0; 
-  color:#0e264b;
+  color: #0e264b;
 `;
 
 const Address = styled.p`
   margin-top: 29px; 
-  color:#0e264b;
-  font-size: 18px; /* Aumenta o tamanho da fonte */
+  color: #0e264b;
+  font-size: 18px; 
+  font-weight: bold;  
 `;
 
 const Center = styled.div`
   margin-left: 50px;
   display: flex;
   flex-direction: column;
+  
 `;
 
 const SectionTitle = styled.h3`
   margin-bottom: 30px;
-  color:#0e264b;
-  font-size: 24px; /* Aumenta o tamanho da fonte */
+  color: #0e264b;
+  font-size: 24px; 
+  font-weight: bold;  
 `;
 
 const Link = styled.a`
-  color:#0e264b;
+  color: #0e264b;
   text-decoration: none;
   margin-bottom: 5px;
-  font-size: 18px; /* Aumenta o tamanho da fonte */
+  font-size: 18px; 
 `;
 
 const Right = styled.div`
   display: flex;
   flex-direction: column;
-  color:#0e264b;
+  color: #0e264b;
 `;
 
 const Social = styled.div`
   display: flex;
   flex-direction: column;
-  color:#0e264b;
+  color: #0e264b;
 `;
 
 const Footer = styled.div`
@@ -79,8 +86,9 @@ const Footer = styled.div`
   padding: 30px 20px;
   background-color: #0e264b;
   color: white;
-  height: 300px;  /* Define uma altura fixa para o rodapé */
-  overflow: hidden;  /* Impede que o conteúdo interno aumente o rodapé */
+  height: 300px;  
+  overflow: hidden; 
+   
 `;
 
 const FooterLine = styled.div`
@@ -91,7 +99,9 @@ const FooterLine = styled.div`
 
 const FooterText = styled.p`
   margin: 5px 0;
-  font-size: 18px;  /* Aumenta o tamanho da fonte */
+  font-size: 18px;  
+  font-weight: bold;  
+  
 `;
 
 const FooterLogo = styled.img`
@@ -102,6 +112,18 @@ const FooterLogo = styled.img`
 `;
 
 
+const CustomerService = styled.p`
+  margin: 20px 0;
+  color: #0e264b;  
+  font-weight: bold;  
+`;
+
+
+const DevelopedText = styled.p`
+  color: white;  
+  font-weight: bold;  
+  font-size: 18px;
+`;
 
 function App() {
   return (
@@ -109,9 +131,9 @@ function App() {
       <ContentContainer>
         <Left>
           <Logo src={footer} alt="AliançaTextil Logo" />
-          <p style={{ margin: '20px 0' }}>ATENDIMENTO AO CLIENTE</p>
+          <CustomerService>ATENDIMENTO AO CLIENTE</CustomerService>
           <Phone>
-            <FontAwesomeIcon icon={faPhoneAlt} style={{ color: '#0e264b' }} /> (32) 99943-1256
+            <FontAwesomeIcon icon={faPhoneAlt} style={{ color: '#0e264b' }} /> (44) 3233-3067
           </Phone>
           <Address>
             Professora Nair Temponi, 56, Nova Pequeri, Pequeri-MG, CEP: 36610000
@@ -120,31 +142,31 @@ function App() {
         <Center>
           <SectionTitle>CONTEÚDO</SectionTitle>
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
-              <Link href="/sobre">Sobre a empresa</Link>
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px'}}>
+              <Link href="#">Sobre a empresa</Link>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
-              <Link href="/trabalhe-conosco">Trabalhe conosco</Link>
+              <Link href="#">Trabalhe conosco</Link>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
-              <Link href="/catalogo">Catálogo virtual</Link>
+              <Link href="#">Catálogo virtual</Link>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
-              <Link href="/contato">Contatos</Link>
+              <Link href="#">Contatos</Link>
             </div>
           </div>
         </Center>
         <Right>
           <SectionTitle>PRODUTOS</SectionTitle>
-          <Link>Elásticos para Roupa íntima</Link>
+          <Link href="#">Elástico de cueca</Link>
         </Right>
         <Social>
           <SectionTitle>REDES SOCIAIS</SectionTitle>
           <div style={{ display: 'flex', gap: '10px' }}>
-            <a href="https://www.instagram.com/aliancatextil.oficial/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faInstagram} style={{ fontSize: '24px', color: '#0e264b' }} />
             </a>
-            <a href="https://www.linkedin.com/in/alian%C3%A7a-t%C3%AAxtil-152733324/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faLinkedin} style={{ fontSize: '24px', color: '#0e264b' }} />
             </a>
           </div>
@@ -153,8 +175,10 @@ function App() {
       <Footer>
         <FooterText>Desenvolvido em: 2024</FooterText>
         <FooterLine>
-          <FooterText>Desenvolvido por</FooterText>
-          <FooterLogo src={logo} alt="NDB Logo" />
+          <DevelopedText>Desenvolvido por</DevelopedText>
+          <a href="https://www.instagram.com/ndbsites_mg/" target="_blank" rel="noopener noreferrer">
+            <FooterLogo src={logo} alt="NDB Logo" />
+          </a>
         </FooterLine>
       </Footer>
     </Container>
