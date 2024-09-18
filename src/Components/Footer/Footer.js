@@ -55,13 +55,7 @@ const Link = styled.a`
   margin-bottom: 5px;
 `;
 
-const Bullet = styled.span`
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: white;
-  margin-right: 10px;
-`;
+
 
 const Right = styled.div`
   display: flex;
