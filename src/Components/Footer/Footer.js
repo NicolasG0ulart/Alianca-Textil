@@ -164,10 +164,10 @@ function App() {
           <SectionTitle>REDES SOCIAIS</SectionTitle>
           <div style={{ display: 'flex', gap: '10px' }}>
             <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faInstagram} style={{ fontSize: '24px', color: '#0e264b' }} />
+              <FontAwesomeIcon icon={faInstagram} style={{ fontSize: '34px', color: '#0e264b' }} />
             </a>
             <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faLinkedin} style={{ fontSize: '24px', color: '#0e264b' }} />
+              <FontAwesomeIcon icon={faLinkedin} style={{ fontSize: '34px', color: '#0e264b' }} />
             </a>
           </div>
         </Social>
