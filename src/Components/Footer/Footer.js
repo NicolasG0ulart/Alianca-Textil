@@ -6,9 +6,7 @@ import { faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import footer from '../../images/logo.png';
 import logo from '../../images/ndb_1.png';
 
-const Container = styled.div`
-  font-family: Arial, sans-serif;
-  background-color: #FFF;
+const Container = styled.div`  background-color: #FFF;
   color: white;
   margin: 0;
   padding: 0;
@@ -20,7 +18,14 @@ const ContentContainer = styled.div`
   justify-content: space-between;
   padding: 20px 50px;
   font-weight: bold;
-  font-size:20px;  
+  font-size:20px;
+
+  @media(max-width: 1024px){
+    gap: 30px;
+    padding-inline: 30px;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Left = styled.div`
@@ -52,14 +57,19 @@ const Center = styled.div`
   margin-left: 50px;
   display: flex;
   flex-direction: column;
-  
+  @media(max-width: 1024px){
+    margin-left: 0;
+    width: 100%;
+  }
 `;
 
 const SectionTitle = styled.h3`
-  margin-bottom: 30px;
   color: #0e264b;
   font-size: 24px; 
-  font-weight: bold;  
+  font-weight: bold;
+  @media(max-width: 1024px){
+    
+  }
 `;
 
 const Link = styled.a`
@@ -73,20 +83,25 @@ const Right = styled.div`
   display: flex;
   flex-direction: column;
   color: #0e264b;
+  @media(max-width: 1024px){
+    width: 100%;
+  }
 `;
 
 const Social = styled.div`
   display: flex;
   flex-direction: column;
   color: #0e264b;
+  @media(max-width: 1024px){
+    width: 100%;
+  }
 `;
 
 const Footer = styled.div`
   text-align: center;
-  padding: 30px 20px;
+  padding: 10px 20px;
   background-color: #0e264b;
   color: white;
-  height: 300px;  
   overflow: hidden; 
    
 `;
@@ -105,10 +120,9 @@ const FooterText = styled.p`
 `;
 
 const FooterLogo = styled.img`
-  margin-top: 20px;
-  height: 150px;  /* Tamanho da logo */
+  margin-top: 30px;
+  height: 90px;
   width: auto;
-  max-height: 100%;  /* Garante que a logo não ultrapasse o rodapé */
 `;
 
 
