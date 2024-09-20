@@ -16,9 +16,6 @@ export const Fita = styled.div`
     font-family: ${(props) => props.font};
     font-weight: ${(props) => props.fontWeight};
     letter-spacing: ${(props) => props.spacing}px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
 
     span {
         position: absolute;

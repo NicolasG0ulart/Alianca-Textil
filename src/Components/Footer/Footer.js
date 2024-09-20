@@ -29,8 +29,10 @@ const ContentContainer = styled.div`
 `;
 
 const Left = styled.div`
-  max-width: 300px;
   color: #0e264b;
+  @media(max-width: 1024px){
+    width: 100%;
+  }
 `;
 
 const Logo = styled.img`
@@ -157,30 +159,30 @@ function App() {
           <SectionTitle>CONTEÚDO</SectionTitle>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px'}}>
-              <Link href="#">Sobre a empresa</Link>
+              <Link href="/sobre">Sobre a empresa</Link>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
-              <Link href="#">Trabalhe conosco</Link>
+              <Link href="/trabalhe-conosco">Trabalhe conosco</Link>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
-              <Link href="#">Catálogo virtual</Link>
+              <Link href="/catalogo">Catálogo virtual</Link>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
-              <Link href="#">Contatos</Link>
+              <Link href="/contato">Contatos</Link>
             </div>
           </div>
         </Center>
         <Right>
           <SectionTitle>PRODUTOS</SectionTitle>
-          <Link href="#">Elástico de cueca</Link>
+          <Link>Elástico de cueca</Link>
         </Right>
         <Social>
           <SectionTitle>REDES SOCIAIS</SectionTitle>
           <div style={{ display: 'flex', gap: '10px' }}>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/aliancatextil.oficial/" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faInstagram} style={{ fontSize: '34px', color: '#0e264b' }} />
             </a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/alian%C3%A7a-t%C3%AAxtil-152733324/" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faLinkedin} style={{ fontSize: '34px', color: '#0e264b' }} />
             </a>
           </div>

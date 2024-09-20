@@ -59,14 +59,6 @@ const Button = styled.button`
   &:hover {
     transform: scale(1.05);
   }
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    margin-bottom:135px;
-
- 
-  
   }
 `;
 
@@ -130,6 +122,11 @@ const ContentList = styled.div`
   justify-content: center;
   flex-wrap: wrap;
 
+  .ant-bug{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const JobListings = styled.div`
@@ -139,8 +136,13 @@ const JobListings = styled.div`
   width: 80%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-
-  @media (max-width: 768px) {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  @media(max-width: 1024px){
+    gap: 30px;
+  }
+  @media(max-width: 768px){
     width: 100%;
   }
 `;
@@ -154,19 +156,20 @@ const Job = styled.div`
   margin-bottom: 30px;
   margin-right: 2.5%;
   width: 45%;
-  height: 270px;
-  display: inline-block;
-  vertical-align: top;
-  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   text-align: left;
 
   &:nth-child(2n) {
     margin-right: 0;
   }
-
-  @media (max-width: 1024px) {
+  @media(max-width: 1024px){
     width: 100%;
-    margin-right: 0;
+  }
+  @media(max-width: 768px){
+    margin: 0;
   }
 `;
 
@@ -186,19 +189,17 @@ const JobDescription = styled.p`
     width: 100%;
     margin-top: 70px;
   }
+  @media(max-width: 768px){
+    margin-top: 20px;
+  }
 `;
 
 const ApplyButton = styled(Button)`
-  position: absolute;
-  bottom: 30px;
   background-color: #2c3e50;
   margin-top: 20px;
   font-size: 15px;
   padding: 10px;
   color: #fff;
-  
-
-
   &:hover {
     background-color: #1a252f;
   }
@@ -261,9 +262,12 @@ const App = () => {
         </Header>
 
         <ContentList>
-          <JobListings>
+          <div class="ant-bug">
             <h2>Listando as vagas mais recentes</h2><br/>
             <p>{filteredJobs.length} vagas encontradas</p><br/>
+        </div>
+          <JobListings>
+            
             {filteredJobs.map((job, index) => (
               <Job key={index}>
                 <JobTitle>{job.title}</JobTitle>
