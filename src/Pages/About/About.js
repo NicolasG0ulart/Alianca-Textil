@@ -90,8 +90,7 @@ const Timeline = styled.div`
 `;
 
 const TimelineItem = styled.div`
-  width: 70%; 
-  max-width: 300px; 
+  width: 100%; 
   padding: 20px;
   background-color: #0e264b;
   color: #fff;
@@ -149,12 +148,12 @@ function App() {
           <RightSection>
             <Timeline>
               <TimelineItem>
-                <h3>2018</h3>
-                <p>Texto aleatórioTexto aleatórioTexto aleatórioTexto aleatórioTexto aleatório</p>
+                <h3>Investimentos</h3>
+                <p>Nossa empresa passou por um crescimento notável, com um aumento de 130% nos investimentos. Esse avanço reflete nosso empenho contínuo em modernizar nossas operações, otimizar processos e garantir produtos de alta qualidade. Estamos focados em expandir e inovar, sempre buscando novas oportunidades para fortalecer nossa presença no mercado.</p>
               </TimelineItem>
               <TimelineItem>
-                <h3>2019</h3>
-                <p>Texto aleatórioTexto aleatórioTexto aleatórioTexto aleatórioTexto aleatório</p>
+                <h3>Pandemia</h3>
+                <p>A pandemia trouxe desafios como o aumento dos preços das matérias-primas, mas seguimos firmes em nosso compromisso. Investimos na contratação de novos funcionários, fortalecendo nossa equipe e apoiando a comunidade local. Mesmo diante das dificuldades, priorizamos a qualidade de nossos produtos, enfrentando cada obstáculo com determinação e responsabilidade.</p>
               </TimelineItem>
             </Timeline>
           </RightSection>
