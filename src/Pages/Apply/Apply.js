@@ -274,7 +274,7 @@ const Candidatar = () => {
       cover_letter: coverLetter,
     };
 
-    emailjs.send("service_d5hd1v1", "template_pd1k2el", templateParams, "hp6NM48KT69N81zP0")
+    emailjs.send("service_0l8sivj", "template_cie0fvh", templateParams, "dAX_ixFgIYZH0mnJ-")
       .then(response => {
         console.log('Email sent successfully:', response);
         setLoading(false);

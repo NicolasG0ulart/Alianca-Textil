@@ -42,7 +42,7 @@ const Logo = styled.img`
 `;
 
 const Phone = styled.p`
-  font-size: 26px;  /* Aumenta o tamanho da fonte */
+  font-size: 26px;  
   font-weight: bold;
   margin: 20px 0; 
   color: #0e264b;
